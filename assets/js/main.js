@@ -42,6 +42,7 @@ $(document).ready(function(){
         $(".navbar-item .nav-sub-item").removeClass("active")
         $(this).addClass("active")
         $(".search-input-label").html("Search . "+$(".navbar-item.active a").text()+" ."+$(this).text())
+        $(".progress-title-con .progress-title").html($(this).text())
         $(subMenuItems).each(function(index) {
             if(this.classList.contains("active")){
                 j=index
@@ -88,11 +89,14 @@ $(document).ready(function(){
             $(".navbar-item .nav-sub-item").removeClass("active")
             $(subMenuItems[j]).addClass("active")
             $(".search-input-label").html("Search . "+$(".navbar-item.active a").text()+" ."+$(subMenuItems[j]).text())
+            $(".progress-title-con .progress-title").html($(this).text())
+            $(".progress-title-con .progress-title").html($(subMenuItems[j]).text())
         }
         else{
             j=0;
             $(subMenuItems[j]).addClass("active")
             $(".search-input-label").html("Search . "+$(".navbar-item.active a").text()+" ."+$(subMenuItems[j]).text())
+            $(".progress-title-con .progress-title").html($(subMenuItems[j]).text())
         }
     }
     function prevItem(){
@@ -115,6 +119,7 @@ $(document).ready(function(){
             $(".navbar-item .nav-sub-item").removeClass("active")
             $(subMenuItems[j]).addClass("active")
             $(".search-input-label").html("Search . "+$(".navbar-item.active a").text()+" ."+$(subMenuItems[j]).text())
+            $(".progress-title-con .progress-title").html($(subMenuItems[j]).text())
         }
         else{
             j= subMenuItems.length - 1;
@@ -128,6 +133,7 @@ $(document).ready(function(){
                 j++
                 $(subMenuItems[j]).addClass("active")
                 $(".search-input-label").html("Search . "+$(".navbar-item.active a").text()+" ."+$(subMenuItems[j]).text())
+                $(".progress-title-con .progress-title").html($(subMenuItems[j]).text())
                 $(".searchbar-input-con").addClass("active")
             }
         }
@@ -137,6 +143,101 @@ $(document).ready(function(){
             $(".nav-sub-item").removeClass("active")
             j = -1;
             $(".searchbar-input-con").removeClass("active")
+            $(".search-input-label").html("Search .")
+            $(".progress-title-con .progress-title").html("")
         }
     }
 })
+
+
+// Video Controls Styles 
+const progressRange = document.querySelector('.progress-range');
+const progressBar = document.querySelector('.progress-bar');
+const vidControlsBtns = document.querySelector('.video-control-buttons');
+const player = document.querySelector('.video-player-container');
+const video = player.querySelector('.viewer');
+
+
+let muted = false;
+
+function mute() {
+  if (!muted) {
+    video['volume'] = 0;
+    muted = true;
+  } else {
+    video['volume'] = 1;
+    muted = false;
+  }
+}
+
+$(".mute-btn").click("click", function(){
+    mute();
+})
+
+
+// update progress bar as the video plays
+function updateProgress() {
+    let progressValue = (video.currentTime / video.duration) * 100
+    if(progressValue == 100){
+        progressBar.style.left= '99%';
+        setTimeout(() => {
+            vidControlsBtns.style.left = 'calc(100% - 295px)'
+        }, 300);
+    }
+    else{
+        progressBar.style.left= progressValue+'%';
+    }
+    if(progressValue == 0){
+        vidControlsBtns.style.left = '0'
+    }
+    if(progressValue > 18 && progressValue < 100){
+        setTimeout(() => {
+            vidControlsBtns.style.left = 'calc('+progressValue+'% - 274px)'
+        }, 300);
+    }
+}
+
+function setProgress(e) {
+    const newTime = e.offsetX / progressRange.offsetWidth;
+    progressBar.style.left = `${newTime * 100}%`;
+    video.currentTime = newTime * video.duration;
+}
+
+function scrub(event) {
+    const scrubTime = (event.offsetX / progressRange.offsetWidth) * video.duration;
+    video.currentTime = scrubTime;
+}
+
+// toggle between play and pause
+function togglePlay() {
+    if (video.paused) {
+      video.play();
+    //   playBtn.classList.replace('fa-play', 'fa-pause');
+    //   playBtn.setAttribute('title', 'Pause');
+    } else {
+      video.pause();
+    //   showPlayIcon();
+    }
+}
+
+// Spacebar used to play and pause
+document.body.onkeyup = function (e) {
+    if (e.keyCode == 32) {
+      togglePlay();
+    }
+}
+
+
+// =======================
+video.addEventListener('timeupdate', updateProgress);
+video.addEventListener('canplay', updateProgress);
+progressRange.addEventListener('click', setProgress);
+// ===================
+
+
+// progress bar controls
+let mouseDown = false;
+progressRange.addEventListener('click', scrub);
+progressRange.addEventListener('mousemove', (event) => mouseDown && scrub(event));
+progressRange.addEventListener('mousedown', () => mouseDown = true);
+progressRange.addEventListener('mouseup', () => mouseDown = false);
