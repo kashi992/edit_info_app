@@ -247,3 +247,30 @@ progressRange.addEventListener('click', scrub);
 progressRange.addEventListener('mousemove', (event) => mouseDown && scrub(event));
 progressRange.addEventListener('mousedown', () => mouseDown = true);
 progressRange.addEventListener('mouseup', () => mouseDown = false);
+
+
+
+$(".results-control.next").on("mousedown", function(){
+    var cs = $(".search-results").scrollTop();
+    $(".search-results").scrollTop(cs+100)
+});
+$(".results-control.prev").on("mousedown", function(){
+    var cs = $(".search-results").scrollTop();
+    $(".search-results").scrollTop(cs-100)
+});
+
+
+$(".navbar-search-btn").click(function(){
+    $(".search-results-con").addClass("show")
+    $(".search-results-con").addClass("show")
+    setTimeout(() => {
+        $(".search-results-con").addClass("appear")
+    }, 50);
+})
+
+$(".searchresult-close-btn").click(function(){
+    $(".search-results-con").removeClass("appear")
+    setTimeout(() => {
+        $(".search-results-con").removeClass("show")
+    }, 300);
+})
