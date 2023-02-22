@@ -280,7 +280,7 @@ main:hover .main-content {
 }
 main .main-content {
   width: 100%;
-  visibility: hidden;
+  visibility: visible;
 }
 main .video-player-container .video-display-con {
   background: rgba(255, 255, 255, 0.3);
@@ -319,15 +319,10 @@ main .video-player-container .video-controls-con .progress-range .progress-bar {
   top: -10px;
   cursor: pointer;
 }
-main .video-player-container .video-controls-con .video-control-buttons {
-  position: absolute;
-  top: -71px;
-  left: 0;
-  display: flex;
-  gap: 35px;
-  align-items: end;
-}
 main .video-player-container .video-controls-con .video-control-buttons .mute-btn {
+  position: absolute;
+  top: -50px;
+  right: 235px;
   width: 60px;
   height: 40px;
   cursor: pointer;
@@ -338,7 +333,18 @@ main .video-player-container .video-controls-con .video-control-buttons .mute-bt
      object-fit: contain;
 }
 main .video-player-container .video-controls-con .video-control-buttons .progress-title-con {
+  position: absolute;
+  bottom: 30px;
+  left: 0;
   min-width: 200px;
+  transition: all 0.3s ease-in-out;
+  transform: scale3d(1, 1, 1) translateY(0) skewX(0);
+}
+main .video-player-container .video-controls-con .video-control-buttons .progress-title-con.rubberBand {
+  animation-name: rubberBand;
+  animation-duration: 1s;
+  animation-fill-mode: forwards;
+  animation-iteration-count: 1;
 }
 main .video-player-container .video-controls-con .video-control-buttons .progress-title-con .progress-title {
   font-size: 14px;
@@ -350,4 +356,13 @@ main .video-player-container .video-controls-con .video-control-buttons .progres
   width: 200px;
   height: 40px;
   background: #000000;
+}
+
+@keyframes rubberBand {
+  0% {
+    transform: scale3d(1, 1, 1);
+  }
+  100% {
+    transform: scale3d(1.1, 0.8, 1) skewX(3deg) translateY(11px);
+  }
 }/*# sourceMappingURL=style.css.map */

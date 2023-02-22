@@ -311,7 +311,7 @@ main{
     }
     .main-content{
         width: 100%;
-        visibility: hidden;
+        visibility: visible;
     }
     // Video Player Styles 
     .video-player-container{
@@ -355,13 +355,10 @@ main{
                 }
             }
             .video-control-buttons{
-                position: absolute;
-                top: -71px;
-                left: 0;
-                display: flex;
-                gap: 35px;
-                align-items: end;
                 .mute-btn{
+                    position: absolute;
+                    top: -50px;
+                    right: 235px;
                     width: 60px;
                     height: 40px;
                     cursor: pointer;
@@ -371,7 +368,18 @@ main{
                     }
                 }
                 .progress-title-con{
+                    position: absolute;
+                    bottom: 30px;
+                    left: 0;
                     min-width: 200px;
+                    transition: all 0.3s ease-in-out;
+                    transform: scale3d(1,1,1) translateY(0) skewX(0);
+                    &.rubberBand{
+                        animation-name: rubberBand;
+                        animation-duration: 1s;
+                        animation-fill-mode: forwards;
+                        animation-iteration-count: 1;
+                    }
                     .progress-title{
                         font-size: 14px;
                         line-height: 17px;
@@ -386,5 +394,14 @@ main{
                 }
             }
         }
+    }
+}
+
+@keyframes rubberBand{
+    0%{
+        transform: scale3d(1,1,1);
+    }
+    100%{
+        transform: scale3d(1.1,0.8,1) skewX(3deg) translateY(11px);
     }
 }

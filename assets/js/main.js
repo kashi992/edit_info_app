@@ -153,7 +153,7 @@ $(document).ready(function(){
 // Video Controls Styles 
 const progressRange = document.querySelector('.progress-range');
 const progressBar = document.querySelector('.progress-bar');
-const vidControlsBtns = document.querySelector('.video-control-buttons');
+const progressTitleCon = document.querySelector('.progress-title-con');
 const player = document.querySelector('.video-player-container');
 const video = player.querySelector('.viewer');
 
@@ -180,19 +180,19 @@ function updateProgress() {
     let progressValue = (video.currentTime / video.duration) * 100
     if(progressValue == 100){
         progressBar.style.left= '99%';
-        setTimeout(() => {
-            vidControlsBtns.style.left = 'calc(100% - 295px)'
-        }, 300);
+        progressTitleCon.style.left = 'calc(100% - 200px)'
+        // setTimeout(() => {
+        // }, 100);
     }
     else{
         progressBar.style.left= progressValue+'%';
     }
-    if(progressValue == 0){
-        vidControlsBtns.style.left = '0'
+    if(progressValue == 0 || progressValue < 12){
+        progressTitleCon.style.left = '0'
     }
-    if(progressValue > 18 && progressValue < 100){
+    if(progressValue > 12 && progressValue < 100){
         setTimeout(() => {
-            vidControlsBtns.style.left = 'calc('+progressValue+'% - 274px)'
+            progressTitleCon.style.left = 'calc('+progressValue+'% - 185px)'
         }, 300);
     }
 }
@@ -206,6 +206,12 @@ function setProgress(e) {
 function scrub(event) {
     const scrubTime = (event.offsetX / progressRange.offsetWidth) * video.duration;
     video.currentTime = scrubTime;
+    if(mouseDown){
+        $(progressTitleCon).addClass("rubberBand")
+    }
+    else{
+        $(progressTitleCon).removeClass("rubberBand")
+    }
 }
 
 // toggle between play and pause
