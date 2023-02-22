@@ -1,8 +1,8 @@
+var j = -1;
 $(document).ready(function(){
     var menuItems = $(".navbar-menu .navbar-item")
     var subMenuItems = $(".navbar-item.active .nav-sub-item")
     var i = 0;
-    var j = -1;
     $(".navbar-menu .navbar-item").mouseenter(function(){
         $(".navbar-menu .navbar-item").removeClass("active")
         $(".navbar-menu .navbar-item").removeClass("hovered")
@@ -261,11 +261,18 @@ $(".results-control.prev").on("mousedown", function(){
 
 
 $(".navbar-search-btn").click(function(){
-    $(".search-results-con").addClass("show")
-    $(".search-results-con").addClass("show")
-    setTimeout(() => {
-        $(".search-results-con").addClass("appear")
-    }, 50);
+    if(j > -1 && $("#search-input").val()){
+        $(".search-results-con").addClass("show")
+        $(".search-results-con").addClass("show")
+        setTimeout(() => {
+            $(".search-results-con").addClass("appear")
+        }, 50);
+        setTimeout(() => {
+            loadSearchResults();
+            $(".main-search-keyword").html($("#search-input").val())
+            $(".sub-search-keyword").html($(".nav-sub-item.active").html())
+        }, 100);
+    }
 })
 
 $(".searchresult-close-btn").click(function(){
@@ -274,3 +281,57 @@ $(".searchresult-close-btn").click(function(){
         $(".search-results-con").removeClass("show")
     }, 300);
 })
+
+
+
+// Load JASON Data Script 
+function loadSearchResults(){
+        //Menu JSON File URL
+        var dataApi_url = "./assets/js/JSON_SAMPLE_SEARCH_RESULTS.json";
+        var dataApi_url2 = "./assets/js/SMALL_TEXT_SAMPLE.json";
+        var data = '';
+        var dataText = '';
+
+        //async function to get Data from JSON file
+        async function getSearchResultData(url, url2) {
+            // Storing response
+            const response = await fetch(url);
+            const response2 = await fetch(url2);
+
+            // Storing data in form of JSON
+            data = await response.json();
+            dataText = await response2.json();
+            var $searchResultsLlist = $("#search-results-list");
+            $.each(data.results, function () {
+                $searchResultsLlist.append(
+                    getSearchResultItem(this)
+                );
+            });
+            
+
+        }
+
+        var getSearchResultItem = function (itemData) {
+            var itemDomain = (new URL(itemData.url));
+            var itemDateTime = (itemData.date_time).split('T')
+            var itemDate = itemDateTime[0]
+            var itemTime = itemDateTime[1]
+            itemDomain = itemDomain.hostname.replace('www.','');
+            var item = $('<li class="search-result-item">')
+                item.append(
+                    $('<div class="item-header"><span>___</span><div class="result-numb">'+itemData.result_number+'</div><div class="result-title">'+itemData.data_1+'</div><div class="result-data-2">'+itemData.data_2+'</div><div class="result-data-3">\ EX <span class="data-tag">'+itemData.data_3+'</span></div></div>')
+                )
+                item.append(
+                    $('<div class="item-details"><div><span class="item-domain"><a href="'+itemData.url+'">'+itemDomain+'</a></span> &nbsp;/&nbsp; <span class="item-date">'+itemDate+'</span></div><div class="item-time">'+itemTime+'</div></div>')
+                )
+                item.append(
+                    $('<div class="item-text-content"><p>'+itemData.headline+'</p></div>')
+                )
+
+                return item
+            
+        };
+
+        // Calling the async function
+        getSearchResultData(dataApi_url, dataApi_url2);
+}

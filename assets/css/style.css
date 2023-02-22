@@ -309,7 +309,7 @@ main:hover .main-content {
 }
 main .main-content {
   width: 100%;
-  visibility: visible;
+  visibility: hidden;
 }
 main .video-player-container .video-display-con {
   background: rgba(255, 255, 255, 0.3);
@@ -465,6 +465,7 @@ main .video-player-container .video-controls-con .video-control-buttons .progres
 }
 .search-results-con .section-content .section-text h3 span {
   color: #62FF00;
+  text-transform: uppercase;
 }
 .search-results-con .section-content .section-text p {
   font-family: "HelveticaNeue";
@@ -516,6 +517,9 @@ main .video-player-container .video-controls-con .video-control-buttons .progres
 }
 .search-results-con .section-content .search-results .search-results-list .search-result-item .item-details div {
   margin-right: 3rem;
+}
+.search-results-con .section-content .search-results .search-results-list .search-result-item .item-details a {
+  color: #ffffff;
 }
 .search-results-con .section-content .search-results .search-results-list .search-result-item .item-text-content {
   margin-top: 35px;

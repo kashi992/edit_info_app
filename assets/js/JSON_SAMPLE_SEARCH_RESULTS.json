@@ -1,0 +1,68 @@
+{
+  "total_results": 7,
+  "results": [
+    {
+      "result_number": "1/7",
+      "headline": "Trump impeached by House of Representatives",
+      "url": "https://www.nytimes.com/2021/01/13/us/politics/trump-impeachment.html",
+      "date_time": "2021-01-13T18:30:00Z",
+      "data_1": "PROGRESSIVE",
+      "data_2": 98.35,
+	  "data_3": 99.45
+    },
+    {
+      "result_number": "2/7",
+      "headline": "Biden inaugurated as 46th President of the United States",
+      "url": "https://www.cnn.com/2021/01/20/politics/biden-inauguration/index.html",
+      "date_time": "2021-01-20T12:00:00Z",
+      "data_1": "INTERNATIONAL",
+      "data_2": 95.35,
+	  "data_3": 92.45
+    },
+    {
+      "result_number": "3/7",
+      "headline": "COVID-19 Vaccines begin rolling out globally",
+      "url": "https://www.bbc.com/news/health-55535382",
+      "date_time": "2021-12-31T20:00:00Z",
+      "data_1": "NATIONAL",
+      "data_2": 90.35,
+	  "data_3": 91.45
+    },
+  {
+      "result_number": "4/7",
+      "headline": "Trump impeached by House of Representatives",
+      "url": "https://www.nytimes.com/2021/01/13/us/politics/trump-impeachment.html",
+      "date_time": "2021-01-13T18:30:00Z",
+      "data_1": "PROGRESSIVE",
+      "data_2": 98.35,
+	  "data_3": 91.45
+    },
+    {
+      "result_number": "5/7",
+      "headline": "Biden inaugurated as 46th President of the United States",
+      "url": "https://www.cnn.com/2021/01/20/politics/biden-inauguration/index.html",
+      "date_time": "2021-01-20T12:00:00Z",
+      "data_1": "INTERNATIONAL",
+      "data_2": 97.35,
+	  "data_3": 96.45
+    },
+    {
+      "result_number": "6/7",
+      "headline": "COVID-19 Vaccines begin rolling out globally",
+      "url": "https://www.bbc.com/news/health-55535382",
+      "date_time": "2021-12-31T20:00:00Z",
+      "data_1": "NATIONAL",
+      "data_2": 94.35,
+	  "data_3": 90.45
+    },
+ {
+      "result_number": "7/7",
+      "headline": "Biden inaugurated as 46th President of the United States",
+      "url": "https://www.cnn.com/2021/01/20/politics/biden-inauguration/index.html",
+      "date_time": "2021-01-20T12:00:00Z",
+      "data_1": "INTERNATIONAL",
+      "data_2": 92.35,
+	  "data_3": 93.45
+    }
+  ]
+}

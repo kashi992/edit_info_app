@@ -353,7 +353,7 @@ main{
     }
     .main-content{
         width: 100%;
-        visibility: visible;
+        visibility: hidden;
     }
     // Video Player Styles 
     .video-player-container{
@@ -521,6 +521,7 @@ main{
                 line-height: 125%;
                 span{
                     color: #62FF00;
+                    text-transform: uppercase;
                 }
             }
             p{
@@ -572,6 +573,9 @@ main{
                         padding-left: 30px;
                         div{
                             margin-right: 3rem;
+                        }
+                        a{
+                            color: #ffffff;
                         }
                     }
                     .item-text-content{
