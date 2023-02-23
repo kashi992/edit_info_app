@@ -193,7 +193,7 @@ function updateProgress() {
     if(progressValue > 12 && progressValue < 100){
         setTimeout(() => {
             progressTitleCon.style.left = 'calc('+progressValue+'% - 185px)'
-        }, 300);
+        }, 100);
     }
 }
 
@@ -231,6 +231,12 @@ document.body.onkeyup = function (e) {
     if (e.keyCode == 32) {
       togglePlay();
     }
+    if(e.keyCode == 13){
+        const elem = document.activeElement;
+        if(elem == document.querySelector('#search-input')){
+            showResults()
+        }
+    }
 }
 
 
@@ -261,6 +267,9 @@ $(".results-control.prev").on("mousedown", function(){
 
 
 $(".navbar-search-btn").click(function(){
+    showResults()
+})
+function showResults(){
     if(j > -1 && $("#search-input").val()){
         $(".search-results-con").addClass("show")
         $(".search-results-con").addClass("show")
@@ -273,7 +282,7 @@ $(".navbar-search-btn").click(function(){
             $(".sub-search-keyword").html($(".nav-sub-item.active").html())
         }, 100);
     }
-})
+}
 
 $(".searchresult-close-btn").click(function(){
     $(".search-results-con").removeClass("appear")
