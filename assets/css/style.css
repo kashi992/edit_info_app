@@ -338,7 +338,7 @@ main .video-player-container .video-controls-con .progress-range {
   width: 100%;
   height: 20px;
   background: url(../img/player-progress-bg.svg);
-  background-size: 100%;
+  background-size: cover;
   background-position: top center;
   background-repeat: no-repeat;
   border-left: 5px solid #000000;
@@ -620,9 +620,16 @@ main .video-player-container .video-controls-con .video-control-buttons .progres
   .navbar .navbar-content .navbar-menu .navbar-menu-list .navbar-item {
     font-size: 8px;
   }
+  .navbar .navbar-content .navbar-menu .navbar-menu-list .navbar-item.hovered, .navbar .navbar-content .navbar-menu .navbar-menu-list .navbar-item.active {
+    height: 50px;
+  }
   .navbar .navbar-content .navbar-menu .navbar-menu-list .navbar-item .nav-sub-menu .sub-menu-list .nav-sub-item {
     max-width: 100%;
     font-size: 8px;
+    height: 25px;
+  }
+  .navbar .navbar-content .navbar-menu .navbar-menu-list .navbar-item .nav-sub-menu .sub-menu-list .nav-sub-item.active, .navbar .navbar-content .navbar-menu .navbar-menu-list .navbar-item .nav-sub-menu .sub-menu-list .nav-sub-item.hovered {
+    height: 40px;
   }
   .navbar .navbar-searhcbar-con {
     flex-wrap: wrap;
@@ -643,5 +650,8 @@ main .video-player-container .video-controls-con .video-control-buttons .progres
   .navbar .navbar-searhcbar-con .navbar-controls .navbar-control {
     height: 50px;
     font-size: 16px;
+  }
+  main {
+    padding: 10px;
   }
 }/*# sourceMappingURL=style.css.map */

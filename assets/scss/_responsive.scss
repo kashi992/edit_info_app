@@ -62,9 +62,17 @@
                 width: 100%;
                 .navbar-menu-list .navbar-item{
                     font-size: 8px;
+
+                    &.hovered, &.active{
+                        height: 50px;
+                    }
                     .nav-sub-menu .sub-menu-list .nav-sub-item{
                         max-width: 100%;
                         font-size: 8px;
+                        height:25px;
+                        &.active, &.hovered{
+                            height: 40px;
+                        }
                     }
                 }
             }
@@ -89,5 +97,8 @@
                 }
            }
         }
+    }
+    main{
+        padding: 10px;
     }
 }
