@@ -3,6 +3,9 @@ $(document).ready(function(){
     var menuItems = $(".navbar-menu .navbar-item")
     var subMenuItems = $(".navbar-item.active .nav-sub-item")
     var i = 0;
+    $(".site-logo").mouseenter(function(){
+        $(".navbar-item.item-1").addClass("hovered")
+    })
     $(".navbar-menu .navbar-item").mouseenter(function(){
         $(".navbar-menu .navbar-item").removeClass("active")
         $(".navbar-menu .navbar-item").removeClass("hovered")
@@ -15,12 +18,14 @@ $(document).ready(function(){
             e.preventDefault();
         })
         subMenuItems = $(".navbar-item.active .nav-sub-item")
+        activeSearchbar()
     })
     $(".navbar").mouseleave(function(){
         $(".navbar-menu .navbar-item").removeClass("hovered")
         if(!document.querySelector(".navbar-item .nav-sub-item.active")){
             $(".navbar-menu .navbar-item").removeClass("active")
             $(".search-input-label").html("Search . ")
+            $(".searchbar-input-con").removeClass("active")
         }
         subMenuItems = $(".navbar-item.active .nav-sub-item")
     })
@@ -41,36 +46,44 @@ $(document).ready(function(){
         subMenuItems = $(".navbar-item.active .nav-sub-item")
         $(".navbar-item .nav-sub-item").removeClass("active")
         $(this).addClass("active")
-        $(".search-input-label").html("Search . "+$(".navbar-item.active a").text()+" ."+$(this).text())
+        activeSearchbar()
         $(".progress-title-con .progress-title").html($(this).text())
-        $(subMenuItems).each(function(index) {
-            if(this.classList.contains("active")){
-                j=index
-            }
-          });
-          $(".searchbar-input-con").addClass("active")
+    })
+    $(".navbar-item .nav-sub-item").mouseenter(function(){
+        $(this).addClass("active")
+        activeSearchbar()
+        $(".navbar-item .nav-sub-item").removeClass("active")
     })
 
     document.onkeyup = function(event) {
             switch (event.keyCode) {
                case 37:
                     prevItem()
+                    activeSearchbar()
                   break;
                case 38:
-                    
                     upItem()
+                    activeSearchbar()
                   break;
                case 39:
-                    
                     nextItem()
+                    activeSearchbar()
                   break;
                case 40:
-                   
                     downItem()
-                  break;
+                    activeSearchbar()
             }        
     };
     
+    function activeSearchbar(){
+        $(".search-input-label").html("Search . "+$(".navbar-item.active a").text()+" ."+$(".navbar-item .nav-sub-item.active").text())
+        $(subMenuItems).each(function(index) {
+            if(this.classList.contains("active")){
+                j=index
+            }
+          });
+          $(".searchbar-input-con").addClass("active")
+    }
     function nextItem(){
         if(j <=-1){
             $(".navbar-menu .navbar-item").removeClass("active")

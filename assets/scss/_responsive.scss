@@ -1,0 +1,93 @@
+@media only screen and (max-width: 1346px){
+    .navbar .navbar-content {
+        .site-logo{
+            width: 20vw;
+            min-width: 200px;
+        }
+        .navbar-menu .navbar-menu-list .navbar-item{
+            white-space: nowrap;
+            .nav-sub-menu .sub-menu-list .nav-sub-item{
+                max-width: 100%;
+            }
+        }
+    }
+}
+
+@media only screen and (max-width: 768px){
+    .navbar {
+        padding: 16px 10px;
+        .navbar-content {
+            .site-logo{
+                min-width: 150px;
+                height: 85px;
+            }
+            .navbar-menu .navbar-menu-list .navbar-item{
+                white-space: nowrap;
+                font-size: 12px;
+                .nav-sub-menu .sub-menu-list .nav-sub-item{
+                    max-width: 100%;
+                    font-size: 12px;
+                }
+            }
+        }
+        .navbar-searhcbar-con {
+            .navbar-search{
+                width: 65%;
+                .searchbar-input-con.active {
+                    .search-input-con{
+                        width: calc(100vw - 20px);
+                    }
+                    label{
+                        font-size: 12px;
+                    }
+                }
+                .navbar-search-btn .btn-icon{
+                    width: 90%;
+                }
+            }
+           .navbar-controls{
+            width: 35%;
+           }
+        }
+    }
+}
+@media only screen and (max-width: 560px){
+    .navbar {
+         .navbar-content {
+            flex-wrap: wrap;
+            .site-logo{
+                width: 100%; 
+            }
+            .navbar-menu {
+                width: 100%;
+                .navbar-menu-list .navbar-item{
+                    font-size: 8px;
+                    .nav-sub-menu .sub-menu-list .nav-sub-item{
+                        max-width: 100%;
+                        font-size: 8px;
+                    }
+                }
+            }
+        }
+        .navbar-searhcbar-con {
+            flex-wrap: wrap;
+            flex-direction: column-reverse;
+            .navbar-search{
+                width: 100%;
+                .searchbar-input-con label{
+                    font-size: 10px;
+                }
+                .navbar-search-btn .btn-icon{
+                    width: 100%;
+                }
+            }
+           .navbar-controls{
+                width: 100%;
+                .navbar-control{
+                    height: 50px;
+                    font-size: 16px;
+                }
+           }
+        }
+    }
+}

@@ -205,9 +205,9 @@ $nav-menu-gap: 10px;
                                 text-transform: uppercase;
                                 background: #79E0FF;
                                 display: flex;
-                                align-items: center;
+                                align-items: flex-start;
                                 cursor: pointer;
-                                &.active{
+                                &.active,&:hover{
                                    height: 100%;
                                 }
                                 &.item-1{
@@ -304,9 +304,17 @@ $nav-menu-gap: 10px;
                 background: #000000;
                 width: calc(20% - ($nav-menu-gap + 2px) / 2);
                 height: 80px;
-                padding: 2px 10px;
-                font-size: 22px;
+                padding: 2px 6px;
                 cursor: pointer;
+                .btn-icon{
+                    width: 80px;
+                    height: 40px;
+                    padding: 10.4px 8px;
+                    border: 1px solid #ffffff;
+                    img{
+                        width: 24px;
+                    }
+                }
             }
         }
         .navbar-controls{
@@ -617,3 +625,5 @@ main{
         }
     }
 }
+
+@import 'responsive'
