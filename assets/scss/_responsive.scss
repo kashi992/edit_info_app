@@ -33,6 +33,11 @@
         .navbar-searhcbar-con {
             .navbar-search{
                 width: 65%;
+                
+                &.active{
+                    height: 200px;
+                }
+            
                 .searchbar-input-con.active {
                     .search-input-con{
                         width: calc(100vw - 20px);
@@ -48,6 +53,11 @@
            .navbar-controls{
             width: 35%;
            }
+        }
+    }
+    main{
+        .main-content{
+            visibility: visible;
         }
     }
 }
@@ -82,8 +92,13 @@
             flex-direction: column-reverse;
             .navbar-search{
                 width: 100%;
-                .searchbar-input-con label{
-                    font-size: 10px;
+                .searchbar-input-con {
+                    &.active, &.hovered{
+                        height: 80px;
+                    }
+                    label{
+                        font-size: 10px;
+                    }
                 }
                 .navbar-search-btn .btn-icon{
                     width: 100%;
@@ -100,5 +115,29 @@
     }
     main{
         padding: 10px;
+    }
+
+    .search-results-con {
+        padding: 16px 20px;
+        .section-header .site-logo{
+            width: 150px;
+            height: 60px;
+        }
+        .section-content {
+            .search-results .search-results-list .search-result-item {
+                .item-header div{
+                    margin-right: 1rem;
+                }
+                .item-text-content p{
+                    font-size: 14px;
+                }
+            }
+            .section-text h3{
+                font-size: 16px;
+            }
+            .search-results .search-results-list .search-result-item .item-details div{
+                margin-right: 2rem;
+            }
+        }
     }
 }

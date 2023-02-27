@@ -135,7 +135,8 @@ $nav-menu-gap: 10px;
                     height: 30px;
                     padding: 6px 10px;
                     color: #000000;
-                    font-size: 14px;
+                    font-size: 12px;
+                    letter-spacing: 0.05em;
                     font-weight: normal;
                     font-style: normal;
                     text-transform: uppercase;
@@ -412,6 +413,7 @@ main{
                     width: 60px;
                     height: 40px;
                     cursor: pointer;
+                    z-index: 2;
                     img{
                         width: 100%;
                         object-fit: contain;
@@ -471,6 +473,7 @@ main{
     left: 0;
     display: none;
     transition: all 0.4s;
+    z-index: 9;
     &.show{
         display: block;
     }

@@ -12,6 +12,7 @@ $(document).ready(function(){
         $(".navbar-item .nav-sub-item").removeClass("active")
         $(".search-input-label").html("Search . "+$(this).find("a").text())
         $(".searchbar-input-con").removeClass("active")
+        $(".searchbar-input-con").parent().removeClass("active")
         $(this).addClass("hovered")
         $(this).addClass("active")
         $(this).find("a").click(function(e){
@@ -26,6 +27,7 @@ $(document).ready(function(){
             $(".navbar-menu .navbar-item").removeClass("active")
             $(".search-input-label").html("Search . ")
             $(".searchbar-input-con").removeClass("active")
+            $(".searchbar-input-con").parent().removeClass("active")
         }
         subMenuItems = $(".navbar-item.active .nav-sub-item")
     })
@@ -83,6 +85,7 @@ $(document).ready(function(){
             }
           });
           $(".searchbar-input-con").addClass("active")
+          $(".searchbar-input-con").parent().addClass("active")
     }
     function nextItem(){
         if(j <=-1){
@@ -148,6 +151,7 @@ $(document).ready(function(){
                 $(".search-input-label").html("Search . "+$(".navbar-item.active a").text()+" ."+$(subMenuItems[j]).text())
                 $(".progress-title-con .progress-title").html($(subMenuItems[j]).text())
                 $(".searchbar-input-con").addClass("active")
+                $(".searchbar-input-con").parent().addClass("active")
             }
         }
     }
@@ -156,31 +160,30 @@ $(document).ready(function(){
             $(".nav-sub-item").removeClass("active")
             j = -1;
             $(".searchbar-input-con").removeClass("active")
+            $(".searchbar-input-con").parent().removeClass("active")
             $(".search-input-label").html("Search .")
             $(".progress-title-con .progress-title").html("")
         }
     }
 })
 
-
 // Video Controls Styles 
 const progressRange = document.querySelector('.progress-range');
 const progressBar = document.querySelector('.progress-bar');
 const progressTitleCon = document.querySelector('.progress-title-con');
-const player = document.querySelector('.video-player-container');
+const player = document.querySelector(".video-player-container");
 const video = player.querySelector('.viewer');
-
 
 let muted = false;
 
 function mute() {
-  if (!muted) {
-    video['volume'] = 0;
-    muted = true;
-  } else {
-    video['volume'] = 1;
-    muted = false;
-  }
+  if (!video.muted) {
+        video['volume'] = 0;
+        video.muted = true;
+    } else {
+        video['volume'] = 1;
+        video.muted = false;
+    }
 }
 
 $(".mute-btn").click("click", function(){
@@ -357,3 +360,17 @@ function loadSearchResults(){
         // Calling the async function
         getSearchResultData(dataApi_url, dataApi_url2);
 }
+
+$(document).ready(function(){
+    if(window.innerWidth < 768){
+        setTimeout(() => {
+            togglePlay();
+        }, 2000);
+    }
+    $(".video-player-container").mouseenter(function(){
+        video.play()
+    })
+    $(".video-player-container").mouseleave(function(){
+        video.pause()
+    })
+})

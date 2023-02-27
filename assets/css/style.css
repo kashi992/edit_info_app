@@ -110,7 +110,8 @@ a:active, a:hover, a:focus {
   height: 30px;
   padding: 6px 10px;
   color: #000000;
-  font-size: 14px;
+  font-size: 12px;
+  letter-spacing: 0.05em;
   font-weight: normal;
   font-style: normal;
   text-transform: uppercase;
@@ -363,6 +364,7 @@ main .video-player-container .video-controls-con .video-control-buttons .mute-bt
   width: 60px;
   height: 40px;
   cursor: pointer;
+  z-index: 2;
 }
 main .video-player-container .video-controls-con .video-control-buttons .mute-btn img {
   width: 100%;
@@ -415,6 +417,7 @@ main .video-player-container .video-controls-con .video-control-buttons .progres
   left: 0;
   display: none;
   transition: all 0.4s;
+  z-index: 9;
 }
 .search-results-con.show {
   display: block;
@@ -594,6 +597,9 @@ main .video-player-container .video-controls-con .video-control-buttons .progres
   .navbar .navbar-searhcbar-con .navbar-search {
     width: 65%;
   }
+  .navbar .navbar-searhcbar-con .navbar-search.active {
+    height: 200px;
+  }
   .navbar .navbar-searhcbar-con .navbar-search .searchbar-input-con.active .search-input-con {
     width: calc(100vw - 20px);
   }
@@ -605,6 +611,9 @@ main .video-player-container .video-controls-con .video-control-buttons .progres
   }
   .navbar .navbar-searhcbar-con .navbar-controls {
     width: 35%;
+  }
+  main .main-content {
+    visibility: visible;
   }
 }
 @media only screen and (max-width: 560px) {
@@ -638,6 +647,9 @@ main .video-player-container .video-controls-con .video-control-buttons .progres
   .navbar .navbar-searhcbar-con .navbar-search {
     width: 100%;
   }
+  .navbar .navbar-searhcbar-con .navbar-search .searchbar-input-con.active, .navbar .navbar-searhcbar-con .navbar-search .searchbar-input-con.hovered {
+    height: 80px;
+  }
   .navbar .navbar-searhcbar-con .navbar-search .searchbar-input-con label {
     font-size: 10px;
   }
@@ -653,5 +665,24 @@ main .video-player-container .video-controls-con .video-control-buttons .progres
   }
   main {
     padding: 10px;
+  }
+  .search-results-con {
+    padding: 16px 20px;
+  }
+  .search-results-con .section-header .site-logo {
+    width: 150px;
+    height: 60px;
+  }
+  .search-results-con .section-content .search-results .search-results-list .search-result-item .item-header div {
+    margin-right: 1rem;
+  }
+  .search-results-con .section-content .search-results .search-results-list .search-result-item .item-text-content p {
+    font-size: 14px;
+  }
+  .search-results-con .section-content .section-text h3 {
+    font-size: 16px;
+  }
+  .search-results-con .section-content .search-results .search-results-list .search-result-item .item-details div {
+    margin-right: 2rem;
   }
 }/*# sourceMappingURL=style.css.map */
