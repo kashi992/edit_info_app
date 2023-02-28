@@ -80,8 +80,10 @@ a:active, a:hover, a:focus {
   width: 280px;
   height: 120px;
   background: #FFF724;
-  padding: 4px 13px;
+  padding: 6px 13px;
   font-family: "Verdana";
+  font-size: 12px;
+  letter-spacing: 0.05em;
 }
 .navbar .navbar-content .site-logo .logo-content {
   display: flex;
@@ -119,6 +121,7 @@ a:active, a:hover, a:focus {
   background: #79E0FF;
   display: flex;
   align-items: center;
+  white-space: nowrap;
 }
 .navbar .navbar-content .navbar-menu .navbar-menu-list .navbar-item.active, .navbar .navbar-content .navbar-menu .navbar-menu-list .navbar-item.hovered {
   height: 100%;
@@ -172,13 +175,15 @@ a:active, a:hover, a:focus {
   height: 30px;
   padding: 6px 10px;
   color: #000000;
-  font-size: 14px;
+  font-size: 12px;
+  letter-spacing: 0;
   font-weight: normal;
   font-style: normal;
   text-transform: uppercase;
   background: #79E0FF;
   display: flex;
   align-items: flex-start;
+  white-space: nowrap;
   cursor: pointer;
 }
 .navbar .navbar-content .navbar-menu .navbar-menu-list .navbar-item .nav-sub-menu .sub-menu-list .nav-sub-item.active, .navbar .navbar-content .navbar-menu .navbar-menu-list .navbar-item .nav-sub-menu .sub-menu-list .nav-sub-item:hover {
@@ -286,14 +291,25 @@ a:active, a:hover, a:focus {
   gap: 8px;
 }
 .navbar .navbar-searhcbar-con .navbar-controls .navbar-control {
-  padding: 2px 10px;
+  padding: 2px 5px;
   background: #000;
-  width: calc(25% - 6px);
   height: 80px;
   width: 100%;
   color: #fff;
   cursor: pointer;
-  font-size: 22px;
+  display: flex;
+  align-items: flex-start;
+}
+.navbar .navbar-searhcbar-con .navbar-controls .navbar-control .arrow-icon {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 40px;
+  height: 40px;
+  border: 1px solid #fff;
+}
+.navbar .navbar-searhcbar-con .navbar-controls .navbar-control .arrow-icon img {
+  width: 60%;
 }
 
 @keyframes fadeIn {
@@ -626,16 +642,25 @@ main .video-player-container .video-controls-con .video-control-buttons .progres
   .navbar .navbar-content .navbar-menu {
     width: 100%;
   }
+  .navbar .navbar-content .navbar-menu .navbar-menu-list {
+    gap: 5px;
+  }
   .navbar .navbar-content .navbar-menu .navbar-menu-list .navbar-item {
     font-size: 8px;
+    height: 22px;
+    padding: 6px;
   }
   .navbar .navbar-content .navbar-menu .navbar-menu-list .navbar-item.hovered, .navbar .navbar-content .navbar-menu .navbar-menu-list .navbar-item.active {
     height: 50px;
   }
+  .navbar .navbar-content .navbar-menu .navbar-menu-list .navbar-item .nav-sub-menu .sub-menu-list {
+    gap: 5px;
+  }
   .navbar .navbar-content .navbar-menu .navbar-menu-list .navbar-item .nav-sub-menu .sub-menu-list .nav-sub-item {
     max-width: 100%;
     font-size: 8px;
-    height: 25px;
+    height: 22px;
+    padding: 6px;
   }
   .navbar .navbar-content .navbar-menu .navbar-menu-list .navbar-item .nav-sub-menu .sub-menu-list .nav-sub-item.active, .navbar .navbar-content .navbar-menu .navbar-menu-list .navbar-item .nav-sub-menu .sub-menu-list .nav-sub-item.hovered {
     height: 40px;

@@ -104,8 +104,11 @@ $nav-menu-gap: 10px;
             width: $logo-width;
             height: $logo-height;
             background: #FFF724;
-            padding: 4px 13px;
+            padding: 6px 13px;
             font-family: 'Verdana';
+            font-size: 12px;
+            letter-spacing: 0.05em;
+
             .logo-content{
                 display: flex;
                 align-items: center;
@@ -144,6 +147,7 @@ $nav-menu-gap: 10px;
                     background: #79E0FF;
                     display: flex;
                     align-items: center;
+                    white-space: nowrap;
                     &.active,&.hovered{
                         height: 100%;
                         .nav-sub-menu{
@@ -200,13 +204,15 @@ $nav-menu-gap: 10px;
                                 height: 30px;
                                 padding: 6px 10px;
                                 color: #000000;
-                                font-size: 14px;
+                                font-size: 12px;
+                                letter-spacing: 0;
                                 font-weight: normal;
                                 font-style: normal;
                                 text-transform: uppercase;
                                 background: #79E0FF;
                                 display: flex;
                                 align-items: flex-start;
+                                white-space: nowrap;
                                 cursor: pointer;
                                 &.active,&:hover{
                                    height: 100%;
@@ -324,14 +330,28 @@ $nav-menu-gap: 10px;
             align-items: center;
             gap: $nav-menu-gap - 2;
             .navbar-control{
-                padding: 2px 10px;
+                padding: 2px 5px;
                 background: #000;
-                width: calc(25% - ((($nav-menu-gap - 2px) * 3)) / 4);
+                // width: calc(25% - ((($nav-menu-gap - 2px) * 3)) / 4);
                 height: 80px;
                 width: 100%;
                 color: #fff;
                 cursor: pointer;
-                font-size: 22px;  
+                display: flex;
+                align-items: flex-start;
+
+                .arrow-icon{
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    width: 40px;
+                    height: 40px;
+                    border: 1px solid #fff;
+                    img{
+                        width: 60%;
+                    }
+                }
+                
             }
         }
     }
