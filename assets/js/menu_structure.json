@@ -1,0 +1,109 @@
+{
+    "menu": [
+      {
+        "name": "Search All",
+        "sub": [
+          {
+            "name": "Ukraine",
+            "videoLink": "./assets/video/Search-2.mp4"
+          },
+          {
+            "name": "U.S. News",
+            "videoLink": "./assets/video/Search-3.mp4"
+          },
+          {
+            "name": "International News",
+            "videoLink": "./assets/video/Search-4.mp4"
+          },
+          {
+            "name": "Today's News",
+            "videoLink": "./assets/video/Search-5.mp4"
+          }
+        ]
+      },
+      {
+        "name": "Politics", 
+        "sub": [
+          {
+            "name": "International News",
+            "videoLink": ""
+          },
+          {
+            "name": "Ukraine",
+            "videoLink": ""
+          },
+          {
+            "name": "Today's News",
+            "videoLink": ""
+          },
+          {
+            "name": "U.S. News",
+            "videoLink": ""
+          }
+        ]
+      },
+      {
+        "name": "Science & Tech", 
+        "sub": [
+          {
+            "name": "U.S. News",
+            "videoLink": ""
+          },
+          {
+            "name": "Ukraine",
+            "videoLink": ""
+          },
+          {
+            "name": "Today's News",
+            "videoLink": ""
+          },
+          {
+            "name": "International News",
+            "videoLink": ""
+          }
+        ]
+      },
+      {
+        "name": "Business", 
+        "sub": [
+          {
+            "name": "Today's News",
+            "videoLink": ""
+          },
+          {
+            "name": "U.S. News",
+            "videoLink": ""
+          },
+          {
+            "name": "Ukraine",
+            "videoLink": ""
+          },
+          {
+            "name": "International News",
+            "videoLink": ""
+          }
+        ]
+      },
+      {
+        "name": "Culture", 
+        "sub": [
+          {
+            "name": "International News",
+            "videoLink": ""
+          },
+          {
+            "name": "Ukraine",
+            "videoLink": ""
+          },
+          {
+            "name": "U.S. News",
+            "videoLink": ""
+          },
+          {
+            "name": "Today's News",
+            "videoLink": ""
+          }
+        ]
+      }
+    ]
+  }
