@@ -109,6 +109,7 @@ body {
 .navbar .navbar-content {
   display: flex;
   gap: 16px;
+  position: relative;
 }
 .navbar .navbar-content .site-logo {
   width: 280px;
@@ -118,6 +119,7 @@ body {
   font-family: "Verdana";
   font-size: 12px;
   letter-spacing: 0.05em;
+  cursor: pointer;
 }
 .navbar .navbar-content .site-logo .logo-content {
   display: flex;
@@ -129,6 +131,59 @@ body {
 }
 .navbar .navbar-content .site-logo .copyright {
   font-size: 8px;
+}
+.navbar .navbar-content .pagesMenu {
+  visibility: hidden;
+  opacity: 0;
+  position: absolute;
+  top: 100%;
+  padding-top: 10px;
+  left: 296px;
+  width: calc(100% - 280px + 16px);
+  animation: none;
+  animation-duration: 0.5s;
+  animation-iteration-count: 1;
+  animation-fill-mode: forwards;
+  cursor: pointer;
+}
+.navbar .navbar-content .pagesMenu.active, .navbar .navbar-content .pagesMenu:hover {
+  animation-name: fadeIn;
+}
+.navbar .navbar-content .pagesMenu .page-menu-list {
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+  gap: 10px;
+  height: 60px;
+}
+.navbar .navbar-content .pagesMenu .page-menu-list .page-menu-item {
+  width: 100%;
+  max-width: calc(20% - 7.5px);
+  height: 30px;
+  padding: 6px 10px;
+  color: #000000;
+  font-size: 12px;
+  letter-spacing: 0;
+  font-weight: normal;
+  font-style: normal;
+  text-transform: uppercase;
+  background: #79E0FF;
+  display: flex;
+  align-items: flex-start;
+  white-space: nowrap;
+  cursor: pointer;
+}
+.navbar .navbar-content .pagesMenu .page-menu-list .page-menu-item.active, .navbar .navbar-content .pagesMenu .page-menu-list .page-menu-item:hover {
+  height: 100%;
+}
+.navbar .navbar-content .pagesMenu .page-menu-list .page-menu-item.item-1 {
+  background: #E0D800;
+}
+.navbar .navbar-content .pagesMenu .page-menu-list .page-menu-item.item-2 {
+  background: #EDE631;
+}
+.navbar .navbar-content .pagesMenu .page-menu-list .page-menu-item.item-3 {
+  background: #F0EC81;
 }
 .navbar .navbar-content .navbar-menu {
   width: calc(100% - 280px + 16px);
@@ -362,15 +417,18 @@ body {
 }
 main {
   padding: 30px;
-}
-main:hover .main-content {
-  visibility: visible;
+  height: 50vh;
+  display: flex;
+  align-items: flex-end;
 }
 main .main-content {
   width: 100%;
   visibility: hidden;
   max-width: 100vw;
   overflow: hidden;
+}
+main .main-content.show {
+  visibility: visible;
 }
 main .video-player-container .video-display-con {
   background: rgba(255, 255, 255, 0.3);
@@ -625,6 +683,12 @@ main .video-player-container .video-controls-con .video-control-buttons .progres
     width: 20vw;
     min-width: 200px;
   }
+  .navbar .navbar-content .pagesMenu {
+    left: calc(20vw + 16px);
+  }
+  .navbar .navbar-content .pagesMenu .page-menu-list .page-menu-item {
+    max-width: 200px;
+  }
   .navbar .navbar-content .navbar-menu .navbar-menu-list .navbar-item {
     white-space: nowrap;
   }
@@ -639,6 +703,10 @@ main .video-player-container .video-controls-con .video-control-buttons .progres
   .navbar .navbar-content .site-logo {
     min-width: 150px;
     height: 85px;
+  }
+  .navbar .navbar-content .pagesMenu .page-menu-list .page-menu-item {
+    max-width: 100%;
+    font-size: 12px;
   }
   .navbar .navbar-content .navbar-menu .navbar-menu-list .navbar-item {
     white-space: nowrap;
@@ -666,9 +734,6 @@ main .video-player-container .video-controls-con .video-control-buttons .progres
   .navbar .navbar-searhcbar-con .navbar-controls {
     width: 35%;
   }
-  main .main-content {
-    visibility: visible;
-  }
 }
 @media only screen and (max-width: 560px) {
   .navbar .navbar-content {
@@ -676,6 +741,22 @@ main .video-player-container .video-controls-con .video-control-buttons .progres
   }
   .navbar .navbar-content .site-logo {
     width: 100%;
+  }
+  .navbar .navbar-content .pagesMenu {
+    left: 0;
+    width: 100%;
+  }
+  .navbar .navbar-content .pagesMenu .page-menu-list {
+    gap: 5px;
+  }
+  .navbar .navbar-content .pagesMenu .page-menu-list .page-menu-item {
+    max-width: 100%;
+    font-size: 8px;
+    height: 22px;
+    padding: 6px;
+  }
+  .navbar .navbar-content .pagesMenu .page-menu-list .page-menu-item.active, .navbar .navbar-content .pagesMenu .page-menu-list .page-menu-item.hovered {
+    height: 40px;
   }
   .navbar .navbar-content .navbar-menu {
     width: 100%;
@@ -728,6 +809,7 @@ main .video-player-container .video-controls-con .video-control-buttons .progres
   }
   main {
     padding: 10px;
+    height: 35vh;
   }
   .search-results-con {
     padding: 16px 20px;

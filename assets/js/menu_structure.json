@@ -2,6 +2,7 @@
     "menu": [
       {
         "name": "Search All",
+        "videoLink": "./assets/video/SearchAll.mov",
         "sub": [
           {
             "name": "Ukraine",
@@ -23,6 +24,7 @@
       },
       {
         "name": "Politics", 
+        "videoLink": "./assets/video/Search-2.mp4",
         "sub": [
           {
             "name": "International News",
@@ -44,6 +46,7 @@
       },
       {
         "name": "Science & Tech", 
+        "videoLink": "./assets/video/Search-3.mp4",
         "sub": [
           {
             "name": "U.S. News",
@@ -64,7 +67,8 @@
         ]
       },
       {
-        "name": "Business", 
+        "name": "Business",
+        "videoLink": "./assets/video/Search-4.mp4", 
         "sub": [
           {
             "name": "Today's News",
@@ -86,6 +90,7 @@
       },
       {
         "name": "Culture", 
+        "videoLink": "./assets/video/Search-5.mp4",
         "sub": [
           {
             "name": "International News",

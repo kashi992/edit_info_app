@@ -1,5 +1,5 @@
 // Script to Load Menu items 
-// Menu and version data fetching function
+// Menu data fetching function
 $(function(){
     if(document.querySelector(".navbar")){
         //Menu JSON File URL
@@ -63,9 +63,13 @@ function applyMenuScript(){
         var subMenuItems = $(".navbar-item.active .nav-sub-item")
         var i = 0;
         $(".site-logo").mouseenter(function(){
-            $(".navbar-item.item-1").addClass("hovered")
+            $(".pagesMenu").addClass("active")
+            $(".navbar-menu .navbar-item").removeClass("active")
+            $(".navbar-menu .navbar-item").removeClass("hovered")
+            $(".navbar-item .nav-sub-item").removeClass("active")
         })
         $(".navbar-menu .navbar-item").mouseenter(function(){
+            $(".pagesMenu").removeClass("active")
             $(".navbar-menu .navbar-item").removeClass("active")
             $(".navbar-menu .navbar-item").removeClass("hovered")
             $(".navbar-item .nav-sub-item").removeClass("active")
@@ -82,6 +86,7 @@ function applyMenuScript(){
         })
         $(".navbar").mouseleave(function(){
             $(".navbar-menu .navbar-item").removeClass("hovered")
+            $(".pagesMenu").removeClass("active")
             if(!document.querySelector(".navbar-menu .navbar-item.active")){
                 $(".navbar-menu .navbar-item").removeClass("active")
                 $(".search-input-label").html("Search . ")
@@ -390,24 +395,72 @@ $(".searchresult-close-btn").click(function(){
     var menuItems = $(".navbar-item")
     var activeMenuItem = '';
     $.each(menuItems, function(index){
+        var activeIndex = ''
+        var subItemIndex = -1
         if(this.classList.contains("active")){
             activeMenuItem = index;
+            var navSubItems = $(".navbar-item.active .nav-sub-item")
+            activeIndex = index
+            $.each(navSubItems, function(subIndex){
+                if(this.classList.contains("active")){
+                    subItemIndex = subIndex
+                }
+            })
+            playVideo(activeIndex, subItemIndex);
         }
     })
     
-    // video.src="./assets/video/Search-2.mp4";
-    $(".bg_video_section").addClass("show");
-    video.play()
-    var videoDuration = (video.duration * 1000)
-    setTimeout(() => {
-        video.src = './assets/video/Search-2.mp4'
-        video.play()
-        videoDuration = (video.duration * 1000)
-        console.log(videoDuration)
-    }, videoDuration);
-    console.log(videoDuration)
 })
 
+function playVideo(index, subIndex){
+    var dataApi_url = "./assets/js/menu_structure.json";
+    var data = '';
+    var vidLink = ''
+    var allVideos = []
+
+    //async function to get Data from JSON file
+    async function getSearchResultData(url) {
+    
+        const response = await fetch(url);
+
+        data = await response.json();
+        if(index != 0){
+            if(subIndex > -1){
+                vidLink = data.menu[index].sub[subIndex].videoLink
+            }
+            else{
+                vidLink = data.menu[index].videoLink
+            }
+            video.src = vidLink
+            $(".bg_video_section").addClass("show");
+            video.play()
+            $(".main-content").addClass("show")
+        }
+        else if(index == 0){
+            $.each(data.menu, function(index){
+                allVideos.push(data.menu[index].videoLink)
+            })
+            let videoIndex = 0;
+
+            video.src = allVideos[videoIndex];
+            video.addEventListener("ended", function() {
+              videoIndex++;
+              if (videoIndex < allVideos.length) {
+                video.src = allVideos[videoIndex];
+                video.play();
+              }
+            });
+          
+            $(".bg_video_section").addClass("show");
+            video.play()
+            $(".main-content").addClass("show")
+        }
+    }
+    
+     getSearchResultData(dataApi_url);
+    
+    
+}
 
 
 // Load JASON Data Script 
@@ -463,11 +516,11 @@ function loadSearchResults(){
 }
 
 $(document).ready(function(){
-    if(window.innerWidth < 768){
-        setTimeout(() => {
-            togglePlay();
-        }, 2000);
-    }
+    // if(window.innerWidth < 768){
+    //     setTimeout(() => {
+    //         togglePlay();
+    //     }, 2000);
+    // }
     // $(".video-player-container").mouseenter(function(){
     //     video.play()
     // })

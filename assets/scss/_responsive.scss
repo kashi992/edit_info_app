@@ -1,8 +1,15 @@
 @media only screen and (max-width: 1346px){
+    $logo-width: 20vw;
     .navbar .navbar-content {
         .site-logo{
-            width: 20vw;
+            width: $logo-width;
             min-width: 200px;
+        }
+        .pagesMenu{
+            left: calc($logo-width + $nav-gap);
+            .page-menu-list .page-menu-item{
+                max-width: 200px;
+            }
         }
         .navbar-menu .navbar-menu-list .navbar-item{
             white-space: nowrap;
@@ -20,6 +27,10 @@
             .site-logo{
                 min-width: 150px;
                 height: 85px;
+            }
+            .pagesMenu .page-menu-list .page-menu-item{
+                max-width: 100%;
+                font-size: 12px;
             }
             .navbar-menu .navbar-menu-list .navbar-item{
                 white-space: nowrap;
@@ -55,11 +66,11 @@
            }
         }
     }
-    main{
-        .main-content{
-            visibility: visible;
-        }
-    }
+    // main{
+    //     .main-content{
+    //         visibility: visible;
+    //     }
+    // }
 }
 @media only screen and (max-width: 560px){
     .navbar {
@@ -67,6 +78,22 @@
             flex-wrap: wrap;
             .site-logo{
                 width: 100%; 
+            }
+            .pagesMenu{
+                left: 0;
+                width: 100%;
+                .page-menu-list {
+                    gap: 5px;
+                    .page-menu-item{
+                        max-width: 100%;
+                        font-size: 8px;
+                        height:22px;
+                        padding: 6px;
+                        &.active, &.hovered{
+                            height: 40px;
+                        }
+                    }
+                }
             }
             .navbar-menu {
                 width: 100%;
@@ -124,6 +151,7 @@
     }
     main{
         padding: 10px;
+        height: 35vh;
     }
 
     .search-results-con {
