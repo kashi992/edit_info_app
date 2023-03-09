@@ -362,14 +362,37 @@ $(".results-control.prev").on("mousedown", function(){
 });
 
 
+
+// Sub Pages Popup Script 
+$(".page-menu-item a").click(function(e){
+    e.preventDefault();
+    $($(this).parent().attr("data-target")).addClass("show")
+    setTimeout(() => {
+        $($(this).parent().attr("data-target")).addClass("appear")
+    }, 50);
+})
+$(".page-menu-item").click(function(e){
+    $($(this).attr("data-target")).addClass("show")
+        setTimeout(() => {
+        $($(this).attr("data-target")).addClass("appear")
+    }, 50);
+})
+$(".sub-page-close-btn").click(function(){
+    $(".sub-page-popup").removeClass("appear")
+    setTimeout(() => {
+        $(".sub-page-popup").removeClass("show")
+    }, 300);
+})
+
+
+
 $(".navbar-search-btn").click(function(){
     showResults()
 })
 function showResults(){
     if( $(".navbar-item").hasClass("active") && $("#search-input").val()){
         $(".search-results-con").addClass("show")
-        $(".search-results-con").addClass("show")
-        setTimeout(() => {
+         setTimeout(() => {
             $(".search-results-con").addClass("appear")
         }, 50);
         setTimeout(() => {
@@ -393,7 +416,7 @@ $(".searchresult-close-btn").click(function(){
     }, 300);
     $("bg_video_section").addClass("show")
     var menuItems = $(".navbar-item")
-    var activeMenuItem = '';
+    var activeMe9nuItem = '';
     $.each(menuItems, function(index){
         var activeIndex = ''
         var subItemIndex = -1
@@ -435,25 +458,43 @@ function playVideo(index, subIndex){
             $(".bg_video_section").addClass("show");
             video.play()
             $(".main-content").addClass("show")
+            video.addEventListener("ended", function(){
+                video.src = vidLink
+                video.currentTime = 0;
+            })
         }
         else if(index == 0){
-            $.each(data.menu, function(index){
-                allVideos.push(data.menu[index].videoLink)
-            })
-            let videoIndex = 0;
-
-            video.src = allVideos[videoIndex];
-            video.addEventListener("ended", function() {
-              videoIndex++;
-              if (videoIndex < allVideos.length) {
+            if(subIndex > -1){
+                console.log(subIndex)
+                vidLink = data.menu[index].sub[subIndex].videoLink
+                video.src = vidLink
+                $(".bg_video_section").addClass("show");
+                video.play()
+                $(".main-content").addClass("show")
+                video.addEventListener("ended", function(){
+                    video.src = vidLink
+                    video.currentTime = 0;
+                })
+            }
+            else{
+                $.each(data.menu, function(index){
+                    allVideos.push(data.menu[index].videoLink)
+                })
+                let videoIndex = 0;
+    
                 video.src = allVideos[videoIndex];
-                video.play();
-              }
-            });
-          
-            $(".bg_video_section").addClass("show");
-            video.play()
-            $(".main-content").addClass("show")
+                video.addEventListener("ended", function() {
+                  videoIndex++;
+                  if (videoIndex < allVideos.length) {
+                    video.src = allVideos[videoIndex];
+                    video.play();
+                  }
+                });
+              
+                $(".bg_video_section").addClass("show");
+                video.play()
+                $(".main-content").addClass("show")
+            }
         }
     }
     

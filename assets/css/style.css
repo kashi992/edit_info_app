@@ -678,6 +678,117 @@ main .video-player-container .video-controls-con .video-control-buttons .progres
   opacity: 1;
 }
 
+.sub-page-popup {
+  padding: 16px 32px;
+  background: #000000;
+  color: #ffffff;
+  position: absolute;
+  width: 100%;
+  min-height: 100vh;
+  height: 100%;
+  top: 100%;
+  left: 0;
+  display: none;
+  transition: all 0.4s;
+  z-index: 9;
+  max-width: 100vw;
+  overflow: hidden;
+}
+.sub-page-popup.show {
+  display: block;
+}
+.sub-page-popup.appear {
+  top: 0;
+}
+.sub-page-popup .section-header {
+  display: flex;
+  align-items: end;
+  justify-content: space-between;
+}
+.sub-page-popup .section-header .site-logo {
+  width: 280px;
+  height: 120px;
+  background: #FFF724;
+  padding: 4px 13px;
+  font-family: "Verdana";
+  color: #000000;
+}
+.sub-page-popup .section-header .site-logo .logo-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.sub-page-popup .section-header .site-logo .logo {
+  font-size: 14px;
+}
+.sub-page-popup .section-header .site-logo .copyright {
+  font-size: 8px;
+}
+.sub-page-popup .section-header .btn-close {
+  width: 60px;
+  height: 60px;
+  background: transparent;
+  color: #b1b1b1;
+  font-size: 32px;
+  font-weight: normal;
+  border: 1px solid #b1b1b1;
+  cursor: pointer;
+}
+.sub-page-popup .section-header .btn-close:hover {
+  color: #ffffff;
+}
+.sub-page-popup .section-content {
+  margin-top: 80px;
+  max-width: 1125px;
+}
+.sub-page-popup .section-content .section-title h4 {
+  font-size: clamp(14px, 1.042vw, 26px);
+  text-transform: uppercase;
+  line-height: 110%;
+  margin-bottom: 64px;
+}
+.sub-page-popup .section-content .section-contact-details {
+  margin-top: 40px;
+}
+.sub-page-popup .section-content p {
+  font-family: "HelveticaNeue";
+  font-size: clamp(12px, 0.938vw, 22px);
+  max-width: 98%;
+  line-height: 115%;
+  letter-spacing: 4px;
+  margin-bottom: 60px;
+}
+.sub-page-popup .section-content .button {
+  font-family: "HelveticaNeue";
+  padding: 14px 33px;
+  background: #FFF724;
+  display: inline-block;
+  color: #000000;
+  font-size: clamp(10px, 0.85vw, 16px);
+  font-weight: 600;
+}
+.sub-page-popup .sub-page-controls {
+  position: absolute;
+  z-index: 2;
+  top: 75%;
+  right: 30px;
+}
+.sub-page-popup .sub-page-controls .results-control {
+  width: 60px;
+  height: 60px;
+  font-size: 22px;
+  background: transparent;
+  color: #e4e4e4;
+  border: 1px solid #e4e4e4;
+  display: block;
+  cursor: pointer;
+  margin-bottom: 30px;
+  opacity: 0.4;
+}
+.sub-page-popup .sub-page-controls .results-control:hover {
+  opacity: 1;
+}
+
 @media only screen and (max-width: 1346px) {
   .navbar .navbar-content .site-logo {
     width: 20vw;
