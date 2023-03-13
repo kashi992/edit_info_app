@@ -5,6 +5,10 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.3.0/css/font-awesome.min.css">
+    <link href="https://unpkg.com/video.js/dist/video-js.css" rel="stylesheet">
+    <script src="https://unpkg.com/video.js/dist/video.js"></script>
+    <script src="https://unpkg.com/videojs-contrib-hls/dist/videojs-contrib-hls.js"></script>
+     
     <link rel="stylesheet" href="./assets/css/style.css">
     <title>AnimatedMenu</title>
 </head>
@@ -12,9 +16,7 @@
     <div class="main-wrapper">
         <div class="bg_video_section">
             <div class="video-display-con">
-                <a href="#">
-                    <video allow="autoplay" muted  class="player_video viewer" src="./assets/video/SearchAll.mov"></video>
-                </a>
+                <video type="application/x-mpegURL" allow="autoplay" muted  class="player_video viewer" src="./assets/video/SearchAll.mov"></video>
             </div>
         </div>
         <div class="content-container">
@@ -93,31 +95,33 @@
             <!-- Navbar End -->
             
             <main>
-                <div class="main-content">
-                    <div class="video-player-container">
-                        <!-- <div class="video-display-con">
-                            <a href="#">
-                                <video allow="autoplay" muted  class="player_video viewer" src="./assets/video/BACKGROUND_V5_SEARCH.mp4"></video>
-                            </a>
-                        </div> -->
-                        <div class="video-controls-con">
-                            <div class="progress-range" title="Jump-to">
-                                <div class="progress-bar"></div>
-                            </div>
-                            <div class="video-control-buttons">
-                                <div class="mute-btn">
-                                    <img src="./assets/img/mute-btn.svg" alt="">
+                <a id="videItemLink" href="" class="w-100 h-100 d-block">
+                    <div class="main-content">
+                        <div class="video-player-container">
+                            <!-- <div class="video-display-con">
+                                <a href="#">
+                                    <video allow="autoplay" muted  class="player_video viewer" src="./assets/video/BACKGROUND_V5_SEARCH.mp4"></video>
+                                </a>
+                            </div> -->
+                            <div class="video-controls-con">
+                                <div class="progress-range" title="Jump-to">
+                                    <div class="progress-bar"></div>
                                 </div>
-                                <div class="progress-title-con">
-                                    <div class="progress-title">
-                                        &nbsp;
+                                <div class="video-control-buttons">
+                                    <div class="mute-btn">
+                                        <img src="./assets/img/mute-btn.svg" alt="">
                                     </div>
-                                    <div class="progress-title-btn"></div>
+                                    <div class="progress-title-con">
+                                        <div class="progress-title">
+                                            &nbsp;
+                                        </div>
+                                        <div class="progress-title-btn"></div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                </div>
+                </a>
             </main>
 
             <!-- Searched Results Pop Start -->

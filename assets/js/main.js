@@ -53,6 +53,8 @@ $(function(){
         };
 
     }
+
+    playHomeVideos()
 })
 
 
@@ -256,6 +258,7 @@ const progressBar = document.querySelector('.progress-bar');
 const progressTitleCon = document.querySelector('.progress-title-con');
 const player = document.querySelector(".bg_video_section");
 const video = player.querySelector('.viewer');
+const videItemLink = document.querySelector('#videItemLink');
 
 let muted = false;
 
@@ -292,7 +295,7 @@ function updateProgress() {
     if(progressValue > 12 && progressValue < 100){
         setTimeout(() => {
             progressTitleCon.style.left = 'calc('+progressValue+'% - 185px)'
-        }, 100);
+        }, 400);
     }
 }
 
@@ -440,6 +443,7 @@ function playVideo(index, subIndex){
     var data = '';
     var vidLink = ''
     var allVideos = []
+    var allVideosLinks = []
 
     //async function to get Data from JSON file
     async function getSearchResultData(url) {
@@ -450,9 +454,11 @@ function playVideo(index, subIndex){
         if(index != 0){
             if(subIndex > -1){
                 vidLink = data.menu[index].sub[subIndex].videoLink
+                videItemLink.href = data.menu[index].sub[subIndex].itemLink
             }
             else{
                 vidLink = data.menu[index].videoLink
+                videItemLink.href = data.menu[index].itemLink
             }
             video.src = vidLink
             $(".bg_video_section").addClass("show");
@@ -460,34 +466,39 @@ function playVideo(index, subIndex){
             $(".main-content").addClass("show")
             video.addEventListener("ended", function(){
                 video.src = vidLink
+                videItemLink.href = data.menu[index].sub[subIndex].itemLink
                 video.currentTime = 0;
             })
         }
         else if(index == 0){
             if(subIndex > -1){
-                console.log(subIndex)
                 vidLink = data.menu[index].sub[subIndex].videoLink
+                videItemLink.href = data.menu[index].sub[subIndex].itemLink
                 video.src = vidLink
                 $(".bg_video_section").addClass("show");
                 video.play()
                 $(".main-content").addClass("show")
                 video.addEventListener("ended", function(){
                     video.src = vidLink
+                    videItemLink.href = data.menu[index].sub[subIndex].itemLink
                     video.currentTime = 0;
                 })
             }
             else{
                 $.each(data.menu, function(index){
                     allVideos.push(data.menu[index].videoLink)
+                    allVideosLinks.push(videItemLink.href = data.menu[index].itemLink)
                 })
                 let videoIndex = 0;
     
                 video.src = allVideos[videoIndex];
+                videItemLink.href = allVideosLinks[videoIndex]
                 video.addEventListener("ended", function() {
-                  videoIndex++;
-                  if (videoIndex < allVideos.length) {
-                    video.src = allVideos[videoIndex];
-                    video.play();
+                    videoIndex++;
+                    if (videoIndex < allVideos.length) {
+                        video.src = allVideos[videoIndex];
+                        videItemLink.href = allVideosLinks[videoIndex]
+                        video.play();
                   }
                 });
               
@@ -498,9 +509,41 @@ function playVideo(index, subIndex){
         }
     }
     
-     getSearchResultData(dataApi_url);
+     getSearchResultData(dataApi_url);   
+}
+
+function playHomeVideos(){
+    var dataApi_url = "./assets/js/menu_structure.json";
+    var data = '';
+    var allVideos = []
+
+    //async function to get Data from JSON file
+    async function getSearchResultData(url) {
     
+        const response = await fetch(url);
+
+        data = await response.json();
+         
+        $.each(data.mainPageVideos, function(index){
+            allVideos.push(data.mainPageVideos[index])
+        })
+        let videoIndex = 0;
     
+        video.src = allVideos[videoIndex];
+        video.addEventListener("ended", function() {
+          videoIndex++;
+          if (videoIndex < allVideos.length) {
+            video.src = allVideos[videoIndex];
+            video.play();
+          }
+        });
+      
+        $(".bg_video_section").addClass("show");
+        video.play()
+        $(".main-content").addClass("show")
+    }
+    
+     getSearchResultData(dataApi_url); 
 }
 
 

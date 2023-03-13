@@ -3,112 +3,138 @@
       {
         "name": "Search All",
         "videoLink": "./assets/video/SearchAll.mov",
+        "itemLink":"search-all",
         "sub": [
           {
             "name": "Ukraine",
-            "videoLink": "./assets/video/Search-2.mp4"
+            "videoLink": "./assets/video/Search-2.mp4",
+            "itemLink":"ukraine"
           },
           {
             "name": "U.S. News",
-            "videoLink": "./assets/video/Search-3.mp4"
+            "videoLink": "./assets/video/Search-3.mp4",
+            "itemLink":"us-news"
           },
           {
             "name": "International News",
-            "videoLink": "./assets/video/Search-4.mp4"
+            "videoLink": "./assets/video/Search-4.mp4",
+            "itemLink":"internationl-news"
           },
           {
             "name": "Today's News",
-            "videoLink": "./assets/video/Search-5.mp4"
+            "videoLink": "./assets/video/Search-5.mp4",
+            "itemLink":"todays-news"
           }
         ]
       },
       {
         "name": "Politics", 
         "videoLink": "./assets/video/Search-2.mp4",
+        "itemLink":"#",
         "sub": [
           {
             "name": "International News",
-            "videoLink": "./assets/video/Search-4.mp4"
+            "videoLink": "./assets/video/Search-4.mp4",
+            "itemLink":"#"
           },
           {
             "name": "Ukraine",
-            "videoLink": "./assets/video/Search-2.mp4"
+            "videoLink": "./assets/video/Search-2.mp4",
+            "itemLink":"#"
           },
           {
             "name": "Today's News",
-            "videoLink": "./assets/video/Search-3.mp4"
+            "videoLink": "./assets/video/Search-3.mp4",
+            "itemLink":"#"
           },
           {
             "name": "U.S. News",
-            "videoLink": "./assets/video/Search-5.mp4"
+            "videoLink": "./assets/video/Search-5.mp4",
+            "itemLink":"#"
           }
         ]
       },
       {
         "name": "Science & Tech", 
         "videoLink": "./assets/video/Search-3.mp4",
+        "itemLink":"#",
         "sub": [
           {
             "name": "International News",
-            "videoLink": "./assets/video/Search-4.mp4"
+            "videoLink": "./assets/video/Search-4.mp4",
+            "itemLink":"#"
           },
           {
             "name": "Today's News",
-            "videoLink": "./assets/video/Search-3.mp4"
+            "videoLink": "./assets/video/Search-3.mp4",
+            "itemLink":"#"
           },
           {
             "name": "Ukraine",
-            "videoLink": "./assets/video/Search-2.mp4"
+            "videoLink": "./assets/video/Search-2.mp4",
+            "itemLink":"#"
           },
           {
             "name": "U.S. News",
-            "videoLink": "./assets/video/Search-5.mp4"
+            "videoLink": "./assets/video/Search-5.mp4",
+            "itemLink":"#"
           }
         ]
       },
       {
         "name": "Business",
         "videoLink": "./assets/video/Search-4.mp4", 
+        "itemLink":"#",
         "sub": [
           {
             "name": "International News",
-            "videoLink": "./assets/video/Search-4.mp4"
+            "videoLink": "./assets/video/Search-4.mp4",
+            "itemLink":"#"
           },
           {
             "name": "U.S. News",
-            "videoLink": "./assets/video/Search-5.mp4"
+            "videoLink": "./assets/video/Search-5.mp4",
+            "itemLink":"#"
           },
           {
             "name": "Today's News",
-            "videoLink": "./assets/video/Search-3.mp4"
+            "videoLink": "./assets/video/Search-3.mp4",
+            "itemLink":"#"
           },
           {
             "name": "Ukraine",
-            "videoLink": "./assets/video/Search-2.mp4"
+            "videoLink": "./assets/video/Search-2.mp4",
+            "itemLink":"#"
           }
         ]
       },
       {
         "name": "Culture", 
         "videoLink": "./assets/video/Search-5.mp4",
+        "itemLink":"#",
         "sub": [
           {
             "name": "International News",
-            "videoLink": ""
+            "videoLink": "./assets/video/Search-2.mp4",
+            "itemLink":"#"
           },
           {
             "name": "Ukraine",
-            "videoLink": ""
+            "videoLink": "./assets/video/Search-3.mp4",
+            "itemLink":"#"
           },
           {
             "name": "U.S. News",
-            "videoLink": ""
+            "videoLink": "./assets/video/Search-5.mp4",
+            "itemLink":"#"
           },
           {
             "name": "Today's News",
-            "videoLink": ""
+            "videoLink": "./assets/video/Search-4.mp4",
+            "itemLink":"#"
           }
         ]
       }
-    ]
+    ],
+    "mainPageVideos": ["./assets/video/SearchAll.mov", "./assets/video/Search-2.mp4", "./assets/video/Search-3.mp4", "./assets/video/Search-4.mp4", "./assets/video/Search-5.mp4"]
   }
