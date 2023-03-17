@@ -11,18 +11,51 @@
                 max-width: 200px;
             }
         }
-        .navbar-menu .navbar-menu-list .navbar-item{
-            white-space: nowrap;
-            .nav-sub-menu .sub-menu-list .nav-sub-item{
-                max-width: 100%;
+        .navbar-menu{
+            width: calc(100% - $logo-width + $nav-gap);
+            .navbar-menu-list .navbar-item{
+                white-space: nowrap;
+                .nav-sub-menu{
+                    left : calc(($logo-width + $nav-gap + $nav-padding-x ));
+                    width: calc(100% - ($logo-width + $nav-gap + ($nav-padding-x * 2)));
+                    // .sub-menu-list .nav-sub-item{
+                        // max-width: 100%
+                    // }
+                }
+            }
+        }
+    }
+}
+@media only screen and (max-width: 1140px){
+    .navbar .navbar-content .navbar-menu .navbar-menu-list .navbar-item .nav-sub-menu .sub-menu-list .nav-sub-item{
+        max-width: 100%;
+        width: 20%;
+        min-width: max-content;
+    }
+}
+
+@media only screen and (max-width: 1020px){
+    .navbar .navbar-content {
+        .navbar-menu{
+            width: calc(100% - 200px + $nav-gap);
+            .navbar-menu-list .navbar-item{
+                white-space: nowrap;
+                // min-width: max-content;
+                .nav-sub-menu{
+                    left : calc((200px + $nav-gap + $nav-padding-x ));
+                    width: calc(100% - (200px + $nav-gap + ($nav-padding-x * 2)));
+                }
             }
         }
     }
 }
 
 @media only screen and (max-width: 768px){
+    $logo-width: 150px;
+    $logo-height: 85px;
+    $nav-padding-x: 10px;
     .navbar {
-        padding: 16px 10px;
+        padding: 16px $nav-padding-x;
         .navbar-content {
             .site-logo{
                 min-width: 150px;
@@ -32,14 +65,22 @@
                 max-width: 100%;
                 font-size: 12px;
             }
-            .navbar-menu .navbar-menu-list .navbar-item{
-                white-space: nowrap;
-                font-size: 12px;
-                .nav-sub-menu .sub-menu-list .nav-sub-item{
-                    max-width: 100%;
+            .navbar-menu{
+                width: calc(100% - $logo-width + $nav-gap);
+                .navbar-menu-list .navbar-item{
+                    white-space: nowrap;
                     font-size: 12px;
+                    .nav-sub-menu {
+                        left : calc(($logo-width + $nav-gap + $nav-padding-x ));
+                        width: calc(100% - ($logo-width + $nav-gap + ($nav-padding-x * 2)));
+                        .sub-menu-list .nav-sub-item{
+                            max-width: 100%;
+                            font-size: 12px;
+                        }
+                    }
                 }
             }
+            
         }
         .navbar-searhcbar-con {
             .navbar-search{
@@ -107,15 +148,21 @@
                         &.hovered, &.active{
                             height: 50px;
                         }
-                        .nav-sub-menu .sub-menu-list{
-                            gap: 5px;
-                            .nav-sub-item{
-                                max-width: 100%;
-                                font-size: 8px;
-                                height:22px;
-                                padding: 6px;
-                                &.active, &.hovered{
-                                    height: 40px;
+                        .nav-sub-menu {
+                            top: 165px;
+                            left: 10px;
+                            width: calc(100% - 20px);
+
+                            .sub-menu-list{
+                                gap: 5px;
+                                .nav-sub-item{
+                                    max-width: 100%;
+                                    font-size: 8px;
+                                    height:22px;
+                                    padding: 6px;
+                                    &.active, &.hovered{
+                                        height: 40px;
+                                    }
                                 }
                             }
                         }
@@ -176,5 +223,11 @@
                 margin-right: 2rem;
             }
         }
+    }
+}
+
+@media only screen and (max-width: 414px){
+    .navbar .navbar-content .navbar-menu .navbar-menu-list .navbar-item{
+        min-width: max-content;
     }
 }

@@ -82,7 +82,7 @@ $logo-width: 280px;
 $logo-height: 120px;
 $nav-gap: 16px;
 $nav-menu-gap: 10px;
-
+$nav-padding-x: 32px;
 body{
     margin: 0;
     font-family: 'Verdana';
@@ -132,7 +132,7 @@ body{
 
 // Navbar Styles
 .navbar{
-    padding: 16px 32px;
+    padding: 16px $nav-padding-x;
     .navbar-content{
         display: flex;
         gap: $nav-gap;
@@ -164,7 +164,7 @@ body{
             visibility: hidden;
             opacity: 0;
             position: absolute;
-            top: 100%;
+            top: calc(100% - 90px);
             padding-top: 10px;
             left: calc($logo-width + $nav-gap);
             width: calc(100% - $logo-width + $nav-gap);
@@ -219,8 +219,16 @@ body{
 
         .navbar-menu{
             width: calc(100% - $logo-width + $nav-gap);
+            overflow-x: auto;
+            overflow-y: visible;
+            height: 210px;
+
+            &::-webkit-scrollbar{
+                display: none;
+            }
+
             .navbar-menu-list{
-                width: 100%;
+                width: auto;
                 height: 100%;
                 display: flex;
                 justify-content: space-between;
@@ -228,7 +236,7 @@ body{
                 position: relative;
 
                 .navbar-item{
-                    width: 100%;
+                    min-width: 20%;
                     height: 30px;
                     padding: 6px 10px;
                     color: #000000;
@@ -242,12 +250,19 @@ body{
                     display: flex;
                     align-items: center;
                     white-space: nowrap;
+                    position: relative;
                     &.active,&.hovered{
-                        height: 100%;
+                        height: 120px;
                         .nav-sub-menu{
                             // display: block;
                             animation-name: fadeIn;
                         }
+                    }
+                    &:nth-of-type(odd){
+                        background: #79E0FF;
+                    }
+                    &:nth-of-type(even){
+                        background: #C4FF00;;
                     }
                     &.item-1{
                         background: #79E0FF;
@@ -277,11 +292,11 @@ body{
                     .nav-sub-menu{
                         visibility: hidden;
                         opacity: 0;
-                        position: absolute;
-                        top: 100%;
+                        position: fixed;
+                        top: $logo-height + 13px;
                         padding-top: 10px;
-                        left: 0;
-                        width: 100%;
+                        left: ($logo-width + $nav-gap + $nav-padding-x ) - 6px;
+                        width: calc(100% - ($logo-width + $nav-gap + ($nav-padding-x * 2)));
                         animation: none;
                         animation-duration: 0.5s ;
                         animation-iteration-count: 1 ;
@@ -294,7 +309,8 @@ body{
                             height: 60px;
                             .nav-sub-item{
                                 width: 100%;
-                                max-width: calc(20% - (($nav-menu-gap * 3)/4));
+                                max-width: 20%;
+                                // max-width: calc(20% - (($nav-menu-gap * 3)/4));
                                 height: 30px;
                                 padding: 6px 10px;
                                 color: #000000;
@@ -337,7 +353,7 @@ body{
         align-items: flex-start;
         justify-content: flex-start;
         gap: $nav-gap - 2;
-        margin-top: 74px;
+        margin-top: 0;
         .navbar-search{
             color: #ffffff;
             width: 74%;

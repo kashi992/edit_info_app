@@ -167,10 +167,14 @@ function applyMenuScript(){
                     i++
                 }
                 else{
+                    $('.navbar-menu').scrollLeft(0);
                     i = 0;
                     $(menuItems[i]).addClass("active")
                     $(menuItems[i]).addClass("hovered")
                     i++
+                }
+                if(i >= 6){
+                    $('.navbar-menu').scrollLeft(i * 200);
                 }
             }
             else if(j > -1 && j < subMenuItems.length){
@@ -196,11 +200,18 @@ function applyMenuScript(){
                 $(".navbar-menu .navbar-item").removeClass("active")
                 $(".navbar-menu .navbar-item").removeClass("hovered")
                 if(i >= 0){
+                    if(i==0 || i < 6){
+                        $('.navbar-menu').scrollLeft(0);
+                    }
+                    else if(i >=6){
+                        $('.navbar-menu').scrollLeft(i * 200);
+                    }
                     i--
                     $(menuItems[i]).addClass("active")
                     $(menuItems[i]).addClass("hovered")
                 }
                 else{
+                    $('.navbar-menu').scrollLeft(-i * 300);
                     i = menuItems.length - 1;
                     $(menuItems[i]).addClass("active")
                     $(menuItems[i]).addClass("hovered")
