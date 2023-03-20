@@ -136,8 +136,10 @@
                     }
                 }
             }
+            
             .navbar-menu {
                 width: 100%;
+                height: 115px;
                 .navbar-menu-list {
                     gap: 5px;
                     .navbar-item{
@@ -196,9 +198,12 @@
            }
         }
     }
+
     main{
         padding: 10px;
-        height: 35vh;
+        .video-player-container a{
+            height: 30vh;
+        }
     }
 
     .search-results-con {

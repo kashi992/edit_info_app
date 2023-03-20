@@ -489,26 +489,14 @@ body{
 
 // Main Styles Start 
 main{
-    padding: 30px;
-    height: 50vh;
+    padding: 0 30px;
     
     &:hover{
-        a{
+        .video-player-container a{
             visibility: visible;
         }
     }
-    a{
-        display: flex;
-        align-items: flex-end;
-        width: 100%;
-        height: 100%;
-        visibility: hidden;
-        max-width: 100vw;
-        overflow: hidden;
-        .main-content{
-            width: 100%;
-        }
-    }
+
     // Video Player Styles 
     .video-player-container{
         .video-display-con{
@@ -522,9 +510,18 @@ main{
                 object-fit: cover;
             }
         }
+        a{
+            display: flex;
+            align-items: flex-end;
+            width: 100%;
+            height: 45vh;
+            visibility: hidden;
+            max-width: 100vw;
+            overflow: hidden;
+        }
 
         .video-controls-con{
-            margin-top: 122px;
+            margin-top: 0px;
             position: relative;
 
             .progress-range{

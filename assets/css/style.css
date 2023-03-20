@@ -432,23 +432,10 @@ body {
   }
 }
 main {
-  padding: 30px;
-  height: 50vh;
+  padding: 0 30px;
 }
-main:hover a {
+main:hover .video-player-container a {
   visibility: visible;
-}
-main a {
-  display: flex;
-  align-items: flex-end;
-  width: 100%;
-  height: 100%;
-  visibility: hidden;
-  max-width: 100vw;
-  overflow: hidden;
-}
-main a .main-content {
-  width: 100%;
 }
 main .video-player-container .video-display-con {
   background: rgba(255, 255, 255, 0.3);
@@ -461,8 +448,17 @@ main .video-player-container .video-display-con video {
   -o-object-fit: cover;
      object-fit: cover;
 }
+main .video-player-container a {
+  display: flex;
+  align-items: flex-end;
+  width: 100%;
+  height: 45vh;
+  visibility: hidden;
+  max-width: 100vw;
+  overflow: hidden;
+}
 main .video-player-container .video-controls-con {
-  margin-top: 122px;
+  margin-top: 0px;
   position: relative;
 }
 main .video-player-container .video-controls-con .progress-range {
@@ -922,6 +918,7 @@ main .video-player-container .video-controls-con .video-control-buttons .progres
   }
   .navbar .navbar-content .navbar-menu {
     width: 100%;
+    height: 115px;
   }
   .navbar .navbar-content .navbar-menu .navbar-menu-list {
     gap: 5px;
@@ -976,7 +973,9 @@ main .video-player-container .video-controls-con .video-control-buttons .progres
   }
   main {
     padding: 10px;
-    height: 35vh;
+  }
+  main .video-player-container a {
+    height: 30vh;
   }
   .search-results-con {
     padding: 16px 20px;

@@ -174,7 +174,12 @@ function applyMenuScript(){
                     i++
                 }
                 if(i >= 6){
-                    $('.navbar-menu').scrollLeft(i * 200);
+                    if(window.innerWidth > 2200){
+                        $('.navbar-menu').scrollLeft(i * 400);
+                    }
+                    else{
+                        $('.navbar-menu').scrollLeft(i * 200);
+                    }
                 }
             }
             else if(j > -1 && j < subMenuItems.length){
