@@ -209,7 +209,11 @@ function applyMenuScript(){
                         $('.navbar-menu').scrollLeft(0);
                     }
                     else if(i >=6){
-                        $('.navbar-menu').scrollLeft(i * 200);
+                        if(window.innerWidth > 2200){
+                            $('.navbar-menu').scrollLeft(i * 400);
+                        }else{
+                            $('.navbar-menu').scrollLeft(i * 200);
+                        }
                     }
                     i--
                     $(menuItems[i]).addClass("active")
@@ -308,10 +312,19 @@ function updateProgress() {
     if(progressValue == 0 || progressValue < 12){
         progressTitleCon.style.left = '0'
     }
-    if(progressValue > 12 && progressValue < 100){
-        setTimeout(() => {
-            progressTitleCon.style.left = 'calc('+progressValue+'% - 185px)'
-        }, 400);
+    if(window.innerWidth < 500){
+        if(progressValue > 12 && progressValue < 100){
+            setTimeout(() => {
+                progressTitleCon.style.left = 'calc('+progressValue+'% - 93px)'
+            }, 100);
+        }
+    }
+    else{
+        if(progressValue > 12 && progressValue < 100){
+            setTimeout(() => {
+                progressTitleCon.style.left = 'calc('+progressValue+'% - 185px)'
+            }, 400);
+        }
     }
 }
 

@@ -977,6 +977,9 @@ main .video-player-container .video-controls-con .video-control-buttons .progres
   main .video-player-container a {
     height: 30vh;
   }
+  main .video-player-container .video-controls-con .video-control-buttons .progress-title-con .progress-title-btn {
+    width: 110px;
+  }
   .search-results-con {
     padding: 16px 20px;
   }
