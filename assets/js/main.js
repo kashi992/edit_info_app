@@ -301,7 +301,7 @@ $(".mute-btn").click("click", function(){
 function updateProgress() {
     let progressValue = (video.currentTime / video.duration) * 100
     if(progressValue == 100){
-        progressBar.style.left= '99%';
+        progressBar.style.left= '98.5%';
         progressTitleCon.style.left = 'calc(100% - 200px)'
         // setTimeout(() => {
         // }, 100);
@@ -315,14 +315,22 @@ function updateProgress() {
     if(window.innerWidth < 500){
         if(progressValue > 12 && progressValue < 100){
             setTimeout(() => {
-                progressTitleCon.style.left = 'calc('+progressValue+'% - 93px)'
-            }, 100);
+                let pixels = parseFloat(progressValue) / 100 * window.innerWidth;
+                pixels -= 110;
+                progressValue = (pixels / window.innerWidth * 100).toFixed(2) + "%";
+
+                progressTitleCon.style.left = progressValue
+            }, 400);
         }
     }
     else{
         if(progressValue > 12 && progressValue < 100){
             setTimeout(() => {
-                progressTitleCon.style.left = 'calc('+progressValue+'% - 185px)'
+                let pixels = parseFloat(progressValue) / 100 * window.innerWidth;
+                pixels -= 185;
+                progressValue = (pixels / window.innerWidth * 100).toFixed(2) + "%";
+
+                progressTitleCon.style.left = progressValue
             }, 400);
         }
     }

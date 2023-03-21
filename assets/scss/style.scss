@@ -92,6 +92,9 @@ body{
     width: 100%;
     position: relative;
     min-height: 99.7vh;
+    height: 100vh;
+    max-height: -webkit-fill-available;
+    overflow: hidden;
 
     .bg_video_section{
         position: absolute;
@@ -133,6 +136,9 @@ body{
 // Navbar Styles
 .navbar{
     padding: 16px $nav-padding-x;
+    position: fixed;
+    width: 100%;
+    z-index: 9;
     .navbar-content{
         display: flex;
         gap: $nav-gap;
@@ -490,6 +496,10 @@ body{
 // Main Styles Start 
 main{
     padding: 0 30px;
+    position: fixed;
+    z-index: 0;
+    bottom: 5vh;
+    width: 100%;
     
     &:hover{
         .video-player-container a{
