@@ -3,34 +3,34 @@
       {
         "name": "Search All",
         "videoLink": "./assets/video/SearchAll.mov",
-        "itemLink":"search-all",
+        "itemLink":"https://www.cnbc.com/",
         "sub": [
           {
             "name": "Ukraine",
             "videoLink": "./assets/video/Search-2.mp4",
-            "itemLink":"ukraine"
+            "itemLink":"https://www.cnbc.com/"
           },
           {
             "name": "U.S. News",
             "videoLink": "./assets/video/Search-3.mp4",
-            "itemLink":"us-news"
+            "itemLink":"https://www.cnbc.com/"
           },
           {
             "name": "International News",
             "videoLink": "./assets/video/Search-4.mp4",
-            "itemLink":"internationl-news"
+            "itemLink":"https://www.cnbc.com/"
           },
           {
             "name": "Today's News",
             "videoLink": "./assets/video/Search-5.mp4",
-            "itemLink":"todays-news"
+            "itemLink":"https://www.cnbc.com/"
           }
         ]
       },
       {
         "name": "Politics", 
         "videoLink": "./assets/video/Search-2.mp4",
-        "itemLink":"#",
+        "itemLink":"https://www.cnbc.com/business/",
         "sub": [
           {
             "name": "International News",
@@ -57,7 +57,7 @@
       {
         "name": "Science & Tech", 
         "videoLink": "./assets/video/Search-3.mp4",
-        "itemLink":"#",
+        "itemLink":"https://www.cnbc.com/investing/",
         "sub": [
           {
             "name": "International News",

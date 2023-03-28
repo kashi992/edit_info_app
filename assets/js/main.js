@@ -173,12 +173,19 @@ function applyMenuScript(){
                     $(menuItems[i]).addClass("hovered")
                     i++
                 }
-                if(i >= 6){
-                    if(window.innerWidth > 2200){
-                        $('.navbar-menu').scrollLeft(i * 400);
+                if(window.innerWidth > 500){
+                    if(i >= 6){
+                        if(window.innerWidth > 2200){
+                            $('.navbar-menu').scrollLeft(i * 400);
+                        }
+                        else{
+                            $('.navbar-menu').scrollLeft(i * 200);
+                        }
                     }
-                    else{
-                        $('.navbar-menu').scrollLeft(i * 200);
+                }
+                else{
+                    if(i >= 5){
+                        $('.navbar-menu').scrollLeft(i * 100);
                     }
                 }
             }
@@ -204,26 +211,33 @@ function applyMenuScript(){
             if(j <= -1){
                 $(".navbar-menu .navbar-item").removeClass("active")
                 $(".navbar-menu .navbar-item").removeClass("hovered")
-                if(i >= 0){
-                    if(i==0 || i < 6){
-                        $('.navbar-menu').scrollLeft(0);
-                    }
-                    else if(i >=6){
-                        if(window.innerWidth > 2200){
-                            $('.navbar-menu').scrollLeft(i * 400);
-                        }else{
-                            $('.navbar-menu').scrollLeft(i * 200);
+                if(window.innerWidth > 500){
+                    if(i > 0){
+                        if(i==0 || i < 6){
+                            $('.navbar-menu').scrollLeft(0);
                         }
+                        else if(i >=6){
+                            if(window.innerWidth > 2200){
+                                $('.navbar-menu').scrollLeft(i * 400);
+                            }else{
+                                $('.navbar-menu').scrollLeft(i * 200);
+                            }
+                        }
+                        i--
+                        $(menuItems[i]).addClass("active")
+                        $(menuItems[i]).addClass("hovered")
                     }
-                    i--
-                    $(menuItems[i]).addClass("active")
-                    $(menuItems[i]).addClass("hovered")
-                }
-                else{
-                    $('.navbar-menu').scrollLeft(-i * 300);
-                    i = menuItems.length - 1;
-                    $(menuItems[i]).addClass("active")
-                    $(menuItems[i]).addClass("hovered")
+                    else{
+                        if(i == 0){
+                            $('.navbar-menu').scrollLeft(menuItems.length * 500);
+                        }else{
+                            $('.navbar-menu').scrollLeft(i * 500);
+                        }
+                        console.log(i)
+                        i = menuItems.length - 1;
+                        $(menuItems[i]).addClass("active")
+                        $(menuItems[i]).addClass("hovered")
+                    }
                 }
             }
             else if(j > -1){

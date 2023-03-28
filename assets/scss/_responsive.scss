@@ -143,6 +143,7 @@
                 .navbar-menu-list {
                     gap: 5px;
                     .navbar-item{
+                        min-width: calc(25% - 4px);
                         font-size: 8px;
                         height: 22px;
                         padding: 6px;
