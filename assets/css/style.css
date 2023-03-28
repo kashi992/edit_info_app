@@ -150,6 +150,7 @@ body {
   animation-iteration-count: 1;
   animation-fill-mode: forwards;
   cursor: pointer;
+  z-index: 2;
 }
 .navbar .navbar-content .pagesMenu.active, .navbar .navbar-content .pagesMenu:hover {
   animation-name: fadeIn;
@@ -782,10 +783,19 @@ main .video-player-container .video-controls-con .video-control-buttons .progres
   font-size: 32px;
   font-weight: normal;
   border: 1px solid #b1b1b1;
+  padding: 7px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
   cursor: pointer;
 }
 .sub-page-popup .section-header .btn-close:hover {
   color: #ffffff;
+}
+.sub-page-popup .section-header .btn-close span svg {
+  display: block;
+  width: 100%;
+  height: 100%;
 }
 .sub-page-popup .section-content {
   margin-top: 80px;
@@ -824,19 +834,37 @@ main .video-player-container .video-controls-con .video-control-buttons .progres
   right: 30px;
 }
 .sub-page-popup .sub-page-controls .results-control {
+  padding: 7px;
   width: 60px;
   height: 60px;
   font-size: 22px;
   background: transparent;
   color: #e4e4e4;
   border: 1px solid #e4e4e4;
-  display: block;
+  display: flex;
+  justify-content: center;
   cursor: pointer;
   margin-bottom: 30px;
   opacity: 0.4;
 }
 .sub-page-popup .sub-page-controls .results-control:hover {
   opacity: 1;
+}
+.sub-page-popup .sub-page-controls .results-control .arrow-icon {
+  width: 25%;
+}
+.sub-page-popup .sub-page-controls .results-control .arrow-icon svg {
+  width: 100%;
+  display: block;
+}
+.sub-page-popup .sub-page-controls .results-control.prev .arrow-icon {
+  rotate: -90deg;
+}
+.sub-page-popup .sub-page-controls .results-control.next {
+  align-items: flex-end;
+}
+.sub-page-popup .sub-page-controls .results-control.next .arrow-icon {
+  rotate: 90deg;
 }
 
 @media only screen and (max-width: 1346px) {
