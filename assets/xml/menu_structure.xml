@@ -1,0 +1,77 @@
+<siteData>
+  <menu>
+    <menuItem name="Search All" videoLink="./assets/video/SearchAll.mov" itemLink="https://www.cnbc.com/">
+      <subMenu>
+        <subItem  videoLink="./assets/video/Search-2.mp4" itemLink="https://www.cnbc.com/">Ukraine</subItem>
+        <subItem videoLink="./assets/video/Search-3.mp4" itemLink="https://www.cnbc.com/">U.S. News</subItem>
+        <subItem videoLink="./assets/video/Search-4.mp4" itemLink="https://www.cnbc.com/">International News</subItem>
+        <subItem videoLink="./assets/video/Search-5.mp4" itemLink="https://www.cnbc.com/">Today's News</subItem>
+      </subMenu>
+    </menuItem>
+    <menuItem name="Politics" videoLink="./assets/video/Search-2.mp4" itemLink="https://www.cnbc.com/business/">
+      <subMenu>
+        <subItem videoLink="./assets/video/Search-5.mp4" itemLink="https://www.cnbc.com/">Today's News</subItem>
+        <subItem videoLink="./assets/video/Search-3.mp4" itemLink="https://www.cnbc.com/">U.S. News</subItem>
+        <subItem videoLink="./assets/video/Search-4.mp4" itemLink="https://www.cnbc.com/">International News</subItem>
+        <subItem  videoLink="./assets/video/Search-2.mp4" itemLink="https://www.cnbc.com/">Ukraine</subItem>
+      </subMenu>
+    </menuItem>
+    <menuItem name="Science &amp; Tech" videoLink="./assets/video/Search-3.mp4" itemLink="https://www.cnbc.com/investing/">
+      <subMenu>
+        <subItem videoLink="./assets/video/Search-4.mp4" itemLink="https://www.cnbc.com/">International News</subItem>
+        <subItem videoLink="./assets/video/Search-3.mp4" itemLink="https://www.cnbc.com/">U.S. News</subItem>
+        <subItem  videoLink="./assets/video/Search-2.mp4" itemLink="https://www.cnbc.com/">Ukraine</subItem>
+        <subItem videoLink="./assets/video/Search-5.mp4" itemLink="https://www.cnbc.com/">Today's News</subItem>
+      </subMenu>
+    </menuItem>
+    <menuItem name="Business" videoLink="./assets/video/Search-4.mp4" itemLink="#">
+      <subMenu>
+        <subItem videoLink="./assets/video/Search-5.mp4" itemLink="https://www.cnbc.com/">Today's News</subItem>
+        <subItem videoLink="./assets/video/Search-3.mp4" itemLink="https://www.cnbc.com/">U.S. News</subItem>
+        <subItem videoLink="./assets/video/Search-4.mp4" itemLink="https://www.cnbc.com/">International News</subItem>
+        <subItem  videoLink="./assets/video/Search-2.mp4" itemLink="https://www.cnbc.com/">Ukraine</subItem>
+      </subMenu>
+    </menuItem>
+    <menuItem name="Culture" videoLink="./assets/video/Search-5.mp4" itemLink="#">
+      <subMenu>
+        <subItem videoLink="./assets/video/Search-3.mp4" itemLink="https://www.cnbc.com/">U.S. News</subItem>
+        <subItem videoLink="./assets/video/Search-4.mp4" itemLink="https://www.cnbc.com/">International News</subItem>
+        <subItem videoLink="./assets/video/Search-5.mp4" itemLink="https://www.cnbc.com/">Today's News</subItem>
+        <subItem  videoLink="./assets/video/Search-2.mp4" itemLink="https://www.cnbc.com/">Ukraine</subItem>
+      </subMenu>
+    </menuItem>
+    <menuItem name="Space" videoLink="./assets/video/Search-2.mp4" itemLink="#">
+      <subMenu>
+        <subItem  videoLink="./assets/video/Search-2.mp4" itemLink="https://www.cnbc.com/">Ukraine</subItem>
+        <subItem videoLink="./assets/video/Search-5.mp4" itemLink="https://www.cnbc.com/">Today's News</subItem>
+        <subItem videoLink="./assets/video/Search-4.mp4" itemLink="https://www.cnbc.com/">International News</subItem>
+        <subItem videoLink="./assets/video/Search-3.mp4" itemLink="https://www.cnbc.com/">U.S. News</subItem>
+      </subMenu>
+    </menuItem>
+    <menuItem name="Botony" videoLink="./assets/video/Search-3.mp4" itemLink="#">
+      <subMenu>
+        <subItem videoLink="./assets/video/Search-5.mp4" itemLink="https://www.cnbc.com/">Today's News</subItem>
+        <subItem videoLink="./assets/video/Search-4.mp4" itemLink="https://www.cnbc.com/">International News</subItem>
+        <subItem videoLink="./assets/video/Search-3.mp4" itemLink="https://www.cnbc.com/">U.S. News</subItem>
+        <subItem videoLink="./assets/video/Search-2.mp4" itemLink="https://www.cnbc.com/">Ukraine</subItem>
+      </subMenu>
+    </menuItem>
+    <menuItem name="Medicine" videoLink="./assets/video/Search-5.mp4" itemLink="#">
+      <subMenu>
+        <subItem videoLink="./assets/video/Search-4.mp4" itemLink="https://www.cnbc.com/">International News</subItem>
+        <subItem videoLink="./assets/video/Search-3.mp4" itemLink="https://www.cnbc.com/">U.S. News</subItem>
+        <subItem videoLink="./assets/video/Search-2.mp4" itemLink="https://www.cnbc.com/">Ukraine</subItem>
+        <subItem videoLink="./assets/video/Search-5.mp4" itemLink="https://www.cnbc.com/">Today's News</subItem>
+      </subMenu>
+    </menuItem>
+  </menu>
+
+  <mainPageVideos>
+    <videoLinks>./assets/video/SearchAll.mov</videoLinks>
+    <videoLinks>./assets/video/Search-2.mp4</videoLinks>
+    <videoLinks>./assets/video/Search-3.mp4</videoLinks>
+    <videoLinks>./assets/video/Search-4.mp4</videoLinks>
+    <videoLinks>./assets/video/Search-5.mp4</videoLinks>
+  </mainPageVideos>
+  
+</siteData>

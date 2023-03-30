@@ -3,37 +3,18 @@
 $(function(){
     if(document.querySelector(".navbar")){
         //Menu JSON File URL
-        const dataApi_url = "./assets/js/menu_structure.json";
-        var data = '';
+        const dataApi_url = "./assets/xml/menu_structure.xml";
+        var $menu = $("#navbar_menu_list");
 
-        //async function to get Data from JSON file
-        async function getMenuData(url) {
-            // Storing response
-            const response = await fetch(url);
-
-            // Storing data in form of JSON
-            data = await response.json();
-            var $menu = $("#navbar_menu_list");
-            $.each(data.menu, function (index) {
-                $menu.append(
-                    getMenuItem(this, index)
-                );
-            });
-            applyMenuScript()
-
-        } 
-        // Calling the async function
-        getMenuData(dataApi_url);
-       
-
-        var getMenuItem = function (itemData, index) {
-        
+        var getMenuItem = function (menuItem, index) {
             var item = $('<li class="navbar-item">')
-                item.append( $('<a href="" class="navbar-link">').html(itemData.name));
-            if (itemData.sub) {
+                item.append( $('<a href="" class="navbar-link">').html(menuItem.getAttribute("name")));
+            if (menuItem.getElementsByTagName('subMenu')) {
                 var subListCon = $('<div class="nav-sub-menu">');
                 var subList = $('<ul class="sub-menu-list">');
-                $.each(itemData.sub, function (subIndex) {
+                var menuSubItems = menuItem.getElementsByTagName('subMenu')
+                 menuSubItems = $(menuSubItems).find('subItem')
+                $.each(menuSubItems, function (subIndex) {
                     subList.append(getSubMenuItem(this, subIndex));
                 });
                 subListCon.append(subList);
@@ -41,18 +22,45 @@ $(function(){
                 $(item).addClass("item-"+(index+1))
                 return item;
             }
+            else{
+                console.log("not found")
+            }
             
         };
-        var getSubMenuItem = function (itemData, index) {
+        var getSubMenuItem = function (subMenuItem, index) {
             var item = ''
                 item = $('<li class="nav-sub-item">')
-                $(item).html(itemData.name);
+                $(item).html(subMenuItem.innerHTML);
                 $(item).addClass("item-"+(index+1))
             return item;
 
         };
 
+
+        const xmlhttp = new XMLHttpRequest();
+        let menuItems=[]
+        xmlhttp.onreadystatechange = function() {
+            if (this.readyState === 4 && this.status === 200) {
+                const xmlDoc = this.responseXML;
+                menuItems = xmlDoc.getElementsByTagName("menuItem");
+                $.each(menuItems, function (index) {
+                    $menu.append(
+                        getMenuItem(this, index)
+                    );
+                });
+
+                applyMenuScript()  
+                
+            } else if (this.readyState === 4 && this.status !== 200) {
+                console.error("Error loading XML file:", this.statusText);
+            }
+        };
+        xmlhttp.open("GET", dataApi_url, true);
+        xmlhttp.send(); 
+
+         
     }
+
 
     playHomeVideos()
 })
@@ -564,37 +572,39 @@ function playVideo(index, subIndex){
 }
 
 function playHomeVideos(){
-    var dataApi_url = "./assets/js/menu_structure.json";
-    var data = '';
+    const dataApi_url = "./assets/xml/menu_structure.xml";
     var allVideos = []
 
-    //async function to get Data from JSON file
-    async function getSearchResultData(url) {
+    const xmlhttp = new XMLHttpRequest();
+    xmlhttp.onreadystatechange = function() {
+        if (this.readyState === 4 && this.status === 200) {
+            const xmlDoc = this.responseXML;
+            const mainPageVideos = xmlDoc.getElementsByTagName("mainPageVideos");
+            const mainVidLinks = $(mainPageVideos).find("videoLinks")
+            $.each(mainVidLinks, function(index){
+                allVideos.push(this.innerHTML)
+            })
+            let videoIndex = 0;
     
-        const response = await fetch(url);
-
-        data = await response.json();
-         
-        $.each(data.mainPageVideos, function(index){
-            allVideos.push(data.mainPageVideos[index])
-        })
-        let videoIndex = 0;
-    
-        video.src = allVideos[videoIndex];
-        video.addEventListener("ended", function() {
-          videoIndex++;
-          if (videoIndex < allVideos.length) {
             video.src = allVideos[videoIndex];
-            video.play();
-          }
-        });
-      
-        $(".bg_video_section").addClass("show");
-        video.play()
-        $(".main-content").addClass("show")
-    }
-    
-     getSearchResultData(dataApi_url); 
+            video.addEventListener("ended", function() {
+            videoIndex++;
+            if (videoIndex < allVideos.length) {
+                video.src = allVideos[videoIndex];
+                video.play();
+            }
+            });
+        
+            $(".bg_video_section").addClass("show");
+            video.play()
+            $(".main-content").addClass("show")
+        } 
+        else if (this.readyState === 4 && this.status !== 200) {
+            console.error("Error loading XML file:", this.statusText);
+        }
+    };
+    xmlhttp.open("GET", dataApi_url, true);
+    xmlhttp.send();
 }
 
 
